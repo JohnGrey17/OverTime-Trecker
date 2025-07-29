@@ -1,0 +1,3 @@
+databaseChangeLog:
+  - include:
+      file: db/changes/creator/create-user-table.yaml
