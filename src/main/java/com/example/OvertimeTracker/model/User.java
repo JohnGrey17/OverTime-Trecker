@@ -3,6 +3,9 @@
     import jakarta.persistence.*;
     import lombok.Data;
 
+    import java.util.HashSet;
+    import java.util.Set;
+
     @Entity
     @Table(name = "users")
     @Data
@@ -16,5 +19,8 @@
         private String departmentName;
         private String position;
         private String phoneNumber;
+
+        @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+        private Set<OverTimeWork> overTimeWorks = new HashSet<>();
     }
 

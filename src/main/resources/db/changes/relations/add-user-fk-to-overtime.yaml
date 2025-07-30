@@ -1,0 +1,21 @@
+databaseChangeLog:
+  - changeSet:
+      id: 3
+      author: serj
+      changes:
+        - addColumn:
+            tableName: over_time_works
+            columns:
+              - column:
+                  name: user_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+
+        - addForeignKeyConstraint:
+            baseTableName: over_time_works
+            baseColumnNames: user_id
+            referencedTableName: users
+            referencedColumnNames: id
+            constraintName: fk_over_time_user
+            onDelete: CASCADE

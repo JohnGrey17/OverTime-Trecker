@@ -1,3 +1,7 @@
 databaseChangeLog:
   - include:
       file: db/changes/creator/create-user-table.yaml
+  - include:
+      file: db/changes/creator/create-over-time-table.yaml
+  - include:
+      file: db/changes/relations/add-user-fk-to-overtime.yaml
