@@ -7,3 +7,5 @@ databaseChangeLog:
       file: db/changes/relations/add-user-fk-to-overtime.yaml
   - include:
       file: db/changes/creator/create-salary-transactions.yaml
+  - include:
+      file: db/changes/creator/create-missing-workdays.yaml

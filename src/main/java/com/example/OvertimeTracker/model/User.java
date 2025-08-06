@@ -25,5 +25,8 @@
 
         @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
         private Set<SalaryTransaction> salaryTransactions = new HashSet<>();
+
+        @OneToMany(mappedBy = "user",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+        private Set<MissingWorkDays> missingWorkDays = new HashSet<>();
     }
 
