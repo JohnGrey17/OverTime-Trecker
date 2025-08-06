@@ -4,6 +4,7 @@ package com.example.OvertimeTracker.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
@@ -18,6 +19,8 @@ public class MissingWorkDays {
     private LocalDate date;
 
     private String reason;
+
+    private BigDecimal missingHours;
 
     @ManyToOne
     @JoinColumn(name = "user_id")

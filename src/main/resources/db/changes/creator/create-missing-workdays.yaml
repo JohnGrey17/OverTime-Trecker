@@ -21,6 +21,10 @@ databaseChangeLog:
                     nullable: false
 
               - column:
+                  name: missing_hours
+                  type: DECIMAL
+
+              - column:
                   name: reason
                   type: VARCHAR(255)
 
