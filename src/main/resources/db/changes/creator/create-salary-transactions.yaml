@@ -1,0 +1,43 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-salary-transaction-table
+      author: serj
+      changes:
+        - createTable:
+            tableName: salary_transactions
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+
+              - column:
+                  name: amount
+                  type: NUMERIC(19,2)
+
+              - column:
+                  name: start_date
+                  type: DATE
+
+              - column:
+                  name: end_date
+                  type: DATE
+
+              - column:
+                  name: transaction_date
+                  type: DATE
+
+              - column:
+                  name: calculated_by
+                  type: VARCHAR(255)
+
+              - column:
+                  name: user_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_salary_transactions_user
+                    references: users(id)
