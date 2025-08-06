@@ -3,6 +3,8 @@
     import jakarta.persistence.*;
     import lombok.Data;
 
+    import java.math.BigDecimal;
+    import java.time.LocalDate;
     import java.time.LocalDateTime;
 
     @Entity
@@ -14,13 +16,13 @@
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Long id;
 
-        private LocalDateTime overTimeDate;
+        private LocalDate overTimeDateRegistration;
 
         private String description;
 
-        private Double multiplier;
+        private BigDecimal multiplier;
 
-        private Double overtime_hours;
+        private BigDecimal overtime_hours;
 
         @ManyToOne
         @JoinColumn(name = "user_id")

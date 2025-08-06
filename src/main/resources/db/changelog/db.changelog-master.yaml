@@ -5,3 +5,5 @@ databaseChangeLog:
       file: db/changes/creator/create-over-time-table.yaml
   - include:
       file: db/changes/relations/add-user-fk-to-overtime.yaml
+  - include:
+      file: db/changes/creator/create-salary-transactions.yaml
