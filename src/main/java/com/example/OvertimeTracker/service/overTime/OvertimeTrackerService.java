@@ -4,5 +4,5 @@ import com.example.OvertimeTracker.dto.OvertimeRequestDto;
 
 public interface OvertimeTrackerService {
 
-    void addNewOvertime(OvertimeRequestDto requestDto);
+    void addNewOvertime(OvertimeRequestDto requestDto, Long userId);
 }
