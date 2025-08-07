@@ -9,3 +9,9 @@ databaseChangeLog:
       file: db/changes/creator/create-salary-transactions.yaml
   - include:
       file: db/changes/creator/create-missing-workdays.yaml
+  - include:
+      file: db/changes/creator/create-roles-table.yaml
+  - include:
+      file: db/changes/relations/add-user-roles-table.yaml
+  - include:
+      file: db/changes/creator/create-roles-in-table.yaml
