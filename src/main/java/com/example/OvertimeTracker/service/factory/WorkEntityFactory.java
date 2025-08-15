@@ -1,7 +1,7 @@
 package com.example.OvertimeTracker.factory;
 
 import com.example.OvertimeTracker.dto.MissingWorkDateRequestDto;
-import com.example.OvertimeTracker.dto.OvertimeRequestDto;
+import com.example.OvertimeTracker.dto.overTime.OvertimeCreateRequestDto;
 import com.example.OvertimeTracker.exceptions.types.UserException;
 import com.example.OvertimeTracker.model.MissingWorkDays;
 import com.example.OvertimeTracker.model.OverTimeWork;
@@ -30,7 +30,7 @@ public class WorkEntityFactory {
         return entity;
     }
 
-    public OverTimeWork createOvertimeWork(OvertimeRequestDto dto, Long userId) {
+    public OverTimeWork createOvertimeWork(OvertimeCreateRequestDto dto, Long userId) {
         User user = getUser(userId);
         OverTimeWork entity = new OverTimeWork();
         entity.setOverTimeDateRegistration(dto.getOverTimeDateRegistration());
