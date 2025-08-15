@@ -17,46 +17,58 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class SalaryCounterServiceImpl {
-//
-//    private final OvertimeRepository overtimeRepository;
-//    private final MissingWorkDaysRepository missingWorkDaysRepository;
-//    private final MonthWorkDaysCheckerService monthWorkDaysCheckerService;
-//    private final UserRepository userRepository;
-//
-//    public BigDecimal calculateSalaryForUser(Long userId, LocalDate monthDate) {
-//        User user = userRepository.findById(userId)
-//                .orElseThrow(() -> new RuntimeException("User not found"));
-//
-//        // 1. Загальна кількість робочих днів у місяці
-//        int workingDays = monthWorkDaysCheckerService.countWorkDayInMonth();
-//
-//        // 2. Ставка за день
-//        BigDecimal salaryPerDay = user.getSalary().divide(BigDecimal.valueOf(workingDays), 2, RoundingMode.HALF_UP);
-//
-//        // 3. Ставка за годину (8 год/день)
-//        BigDecimal salaryPerHour = salaryPerDay.divide(BigDecimal.valueOf(8), 2, RoundingMode.HALF_UP);
-//
-//        // 4. Отримати пропущені години
-//        List<MissingWorkDays> missedDays = missingWorkDaysRepository.findAllByUserIdAndMonth(userId, monthDate);
-//        BigDecimal totalMissedHours = missedDays.stream()
-//                .map(MissingWorkDays::getMissingHours)
-//                .reduce(BigDecimal.ZERO, BigDecimal::add);
-//
-//        // 5. Отримати овертайми
-//        List<OverTimeWork> overtimes = overtimeRepository.findAllByUserIdAndMonth(userId, monthDate);
-//        BigDecimal totalOvertimePayment = overtimes.stream()
-//                .map(o -> o.getOvertime_hours().multiply(o.getMultiplier()))
-//                .reduce(BigDecimal.ZERO, BigDecimal::add)
-//                .multiply(salaryPerHour);
-//
-//        // 6. Мінус пропущені години
-//        BigDecimal deduction = totalMissedHours.multiply(salaryPerHour);
-//
-//        // 7. Результат
-//        BigDecimal finalSalary = user.getSalary().subtract(deduction).add(totalOvertimePayment);
-//        return finalSalary.setScale(2, RoundingMode.HALF_UP);
-//    }
-//}
+public class SalaryCounterServiceImpl implements SalaryCounterService {
 
+    private final OvertimeRepository overtimeRepository;
+    private final MissingWorkDaysRepository missingWorkDaysRepository;
+    private final MonthWorkDaysCheckerService monthWorkDaysCheckerService;
+    private final UserRepository userRepository;
+
+    public BigDecimal calculateSalaryForUser(Long userId, LocalDate monthDate) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+
+        // 🔹 1. Загальна кількість робочих днів у місяці
+        int workingDays = monthWorkDaysCheckerService.countWorkDayInMonth();
+
+        // 🔹 2. Ставка за день
+        BigDecimal salaryPerDay = user.getSalary()
+                .divide(BigDecimal.valueOf(workingDays), 2, RoundingMode.HALF_UP);
+
+        // 🔹 3. Ставка за годину (8 год/день)
+        BigDecimal salaryPerHour = salaryPerDay
+                .divide(BigDecimal.valueOf(8), 2, RoundingMode.HALF_UP);
+
+        // 🔹 4. Визначення місяця та року
+        int month = monthDate.getMonthValue();
+        int year = monthDate.getYear();
+
+        // 🔹 5. Отримати пропущені години
+        List<MissingWorkDays> missedDays = missingWorkDaysRepository
+                .findAllByUserIdAndMonth(userId, month, year);
+
+        BigDecimal totalMissedHours = missedDays.stream()
+                .map(MissingWorkDays::getMissingHours)
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
+
+        // 🔹 6. Отримати овертайми
+        List<OverTimeWork> overtimes = overtimeRepository
+                .findAllByUserIdAndMonth(userId, month, year);
+
+        BigDecimal totalOvertimePayment = overtimes.stream()
+                .map(o -> o.getOvertime_hours().multiply(o.getMultiplier()))
+                .reduce(BigDecimal.ZERO, BigDecimal::add)
+                .multiply(salaryPerHour);
+
+        // 🔹 7. Вирахування за пропущені години
+        BigDecimal deduction = totalMissedHours.multiply(salaryPerHour);
+
+        // 🔹 8. Підсумкова зарплата
+        BigDecimal finalSalary = user.getSalary()
+                .subtract(deduction)
+                .add(totalOvertimePayment);
+
+        return finalSalary.setScale(2, RoundingMode.HALF_UP);
+    }
 }
+
