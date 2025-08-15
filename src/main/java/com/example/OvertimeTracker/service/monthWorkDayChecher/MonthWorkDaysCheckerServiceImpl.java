@@ -1,8 +1,11 @@
 package com.example.OvertimeTracker.service.monthWorkDayChecher;
 
+import org.springframework.stereotype.Service;
+
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 
+@Service
 public class MonthWorkDaysCheckerServiceImpl  implements MonthWorkDaysCheckerService {
 
     @Override

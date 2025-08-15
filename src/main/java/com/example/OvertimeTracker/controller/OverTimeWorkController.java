@@ -1,6 +1,6 @@
 package com.example.OvertimeTracker.controller;
 
-import com.example.OvertimeTracker.dto.OvertimeRequestDto;
+import com.example.OvertimeTracker.dto.overTime.OvertimeCreateRequestDto;
 import com.example.OvertimeTracker.model.User;
 import com.example.OvertimeTracker.service.overTime.OvertimeTrackerService;
 import lombok.RequiredArgsConstructor;
@@ -20,7 +20,7 @@ public class OverTimeWorkController {
 
     @PostMapping("/add")
     @PreAuthorize("hasRole('USER')")
-    public void addOverTime(@RequestBody OvertimeRequestDto requestDto, @AuthenticationPrincipal User user) {
+    public void addOverTime(@RequestBody OvertimeCreateRequestDto requestDto, @AuthenticationPrincipal User user) {
         overtimeTrackerService.addNewOvertime(requestDto, user.getId());
     }
 }
