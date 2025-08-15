@@ -27,7 +27,8 @@ public class MissingWorkDaysController {
             description = "Creates a record for a missed workday with a reason and number of missing hours"
     )
     @PreAuthorize("hasRole('USER')")
-    public void addMissingWorkDate(@RequestBody MissingWorkDateRequestDto requestDto, @AuthenticationPrincipal User user) {
+    public void addMissingWorkDate(
+            @RequestBody MissingWorkDateRequestDto requestDto, @AuthenticationPrincipal User user) {
         missingWorkDaysService.addMissingWorkDay(requestDto, user.getId());
     }
 }

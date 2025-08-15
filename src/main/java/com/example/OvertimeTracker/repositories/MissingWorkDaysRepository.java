@@ -11,8 +11,8 @@ import java.util.List;
 @Repository
 public interface MissingWorkDaysRepository extends JpaRepository<MissingWorkDays, Long> {
     @Query("SELECT m FROM MissingWorkDays m WHERE m.user.id = :userId " +
-            "AND FUNCTION('MONTH', m.date) = :month " +
-            "AND FUNCTION('YEAR', m.date) = :year")
+            "AND EXTRACT(MONTH FROM m.date) = :month " +
+            "AND EXTRACT(YEAR FROM m.date) = :year")
     List<MissingWorkDays> findAllByUserIdAndMonth(@Param("userId") Long userId,
                                                   @Param("month") int month,
                                                   @Param("year") int year);
