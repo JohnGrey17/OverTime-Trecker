@@ -1,4 +1,4 @@
-package com.example.OvertimeTracker.dto;
+package com.example.OvertimeTracker.dto.overTime;
 
 import lombok.Data;
 
@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Data
-public class OvertimeRequestDto {
+public class OvertimeCreateRequestDto {
 
     private LocalDate overTimeDateRegistration;
 

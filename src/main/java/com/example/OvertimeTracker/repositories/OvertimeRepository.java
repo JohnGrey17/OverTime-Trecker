@@ -12,8 +12,8 @@ import java.util.List;
 public interface OvertimeRepository extends JpaRepository<OverTimeWork, Long> {
 
     @Query("SELECT o FROM OverTimeWork o WHERE o.user.id = :userId " +
-            "AND FUNCTION('MONTH', o.overTimeDateRegistration) = :month " +
-            "AND FUNCTION('YEAR', o.overTimeDateRegistration) = :year")
+            "AND EXTRACT(MONTH FROM o.overTimeDateRegistration) = :month " +
+            "AND EXTRACT(YEAR FROM o.overTimeDateRegistration) = :year")
     List<OverTimeWork> findAllByUserIdAndMonth(@Param("userId") Long userId,
                                                @Param("month") int month,
                                                @Param("year") int year);
