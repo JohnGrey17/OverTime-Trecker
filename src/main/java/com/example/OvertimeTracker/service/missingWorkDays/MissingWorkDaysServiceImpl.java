@@ -1,6 +1,6 @@
     package com.example.OvertimeTracker.service.missingWorkDays;
 
-    import com.example.OvertimeTracker.dto.MissingWorkDateRequestDto;
+    import com.example.OvertimeTracker.dto.missingDate.MissingWorkDateRequestDto;
     import com.example.OvertimeTracker.repositories.MissingWorkDaysRepository;
     import lombok.RequiredArgsConstructor;
     import lombok.val;
