@@ -5,7 +5,6 @@
 
     import java.math.BigDecimal;
     import java.time.LocalDate;
-    import java.time.LocalDateTime;
 
     @Entity
     @Data
@@ -22,7 +21,7 @@
 
         private BigDecimal multiplier;
 
-        private BigDecimal overtime_hours;
+        private BigDecimal getOvertimeHoursCount;
 
         @ManyToOne
         @JoinColumn(name = "user_id")

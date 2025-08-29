@@ -1,5 +1,6 @@
 package com.example.OvertimeTracker.service.overTime;
 
+import com.example.OvertimeTracker.dto.overTime.OverTimeMonthRequestDto;
 import com.example.OvertimeTracker.dto.overTime.OverTimeResponseDto;
 import com.example.OvertimeTracker.dto.overTime.OvertimeCreateRequestDto;
 
@@ -10,5 +11,5 @@ public interface OvertimeTrackerService {
 
     void addNewOvertime(OvertimeCreateRequestDto requestDto, Long userId);
 
-    List<OverTimeResponseDto> getAllByMonth(Long userId, LocalDate month);
+    List<OverTimeResponseDto> getAllByMonth(Long userId, OverTimeMonthRequestDto requestDto);
 }
