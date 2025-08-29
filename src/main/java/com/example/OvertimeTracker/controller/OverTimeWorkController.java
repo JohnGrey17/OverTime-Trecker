@@ -26,7 +26,7 @@ public class OverTimeWorkController {
         overtimeTrackerService.addNewOvertime(requestDto, user.getId());
     }
 
-    @GetMapping("/get/all")
+    @GetMapping("/getBy/month")
     @PreAuthorize("hasRole('USER')")
     public List<OverTimeResponseDto> getAllByUserIdAndPeriod(@RequestBody OverTimeMonthRequestDto requestDto, @AuthenticationPrincipal User user) {
         return overtimeTrackerService.getAllByMonth(user.getId(), requestDto);

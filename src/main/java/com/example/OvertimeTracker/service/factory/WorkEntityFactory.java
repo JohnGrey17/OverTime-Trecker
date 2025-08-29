@@ -35,7 +35,7 @@ public class WorkEntityFactory {
         OverTimeWork entity = new OverTimeWork();
         entity.setOverTimeDateRegistration(dto.getOverTimeDateRegistration());
         entity.setDescription(dto.getDescription());
-        entity.setGetOvertimeHoursCount(dto.getOvertime_hours());
+        entity.setOvertime_hours(dto.getOvertime_hours());
         entity.setMultiplier(calculateMultiplier(dto.getOverTimeDateRegistration()));
         entity.setUser(user);
         return entity;

@@ -14,7 +14,7 @@ public class DtoFactory {
         OverTimeResponseDto dto = new OverTimeResponseDto();
         dto.setOverTimeDateRegistrationTime(overtime.getOverTimeDateRegistration());
         dto.setDescription(overtime.getDescription());
-        dto.setOvertimeHoursCount(overtime.getGetOvertimeHoursCount());
+        dto.setOvertimeHoursCount(overtime.getOvertime_hours());
         return dto;
     }
 }

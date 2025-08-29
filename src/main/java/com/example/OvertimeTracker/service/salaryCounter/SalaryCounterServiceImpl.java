@@ -56,7 +56,7 @@ public class SalaryCounterServiceImpl implements SalaryCounterService {
                 .findAllByUserIdAndMonth(userId, month, year);
 
         BigDecimal totalOvertimePayment = overtimes.stream()
-                .map(o -> o.getGetOvertimeHoursCount().multiply(o.getMultiplier()))
+                .map(o -> o.getOvertime_hours().multiply(o.getMultiplier()))
                 .reduce(BigDecimal.ZERO, BigDecimal::add)
                 .multiply(salaryPerHour);
 

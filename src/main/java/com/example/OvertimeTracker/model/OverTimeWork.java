@@ -21,7 +21,7 @@
 
         private BigDecimal multiplier;
 
-        private BigDecimal getOvertimeHoursCount;
+        private BigDecimal overtime_hours;
 
         @ManyToOne
         @JoinColumn(name = "user_id")
