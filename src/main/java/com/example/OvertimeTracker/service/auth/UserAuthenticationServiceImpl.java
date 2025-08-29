@@ -1,7 +1,7 @@
 package com.example.OvertimeTracker.service.auth;
 
-import com.example.OvertimeTracker.dto.MessageResponseDto;
-import com.example.OvertimeTracker.dto.UserRegistrationRequestDto;
+import com.example.OvertimeTracker.dto.user.MessageResponseDto;
+import com.example.OvertimeTracker.dto.user.UserRegistrationRequestDto;
 import com.example.OvertimeTracker.exceptions.types.UserException;
 import com.example.OvertimeTracker.mapper.UserMapper;
 import com.example.OvertimeTracker.model.User;
