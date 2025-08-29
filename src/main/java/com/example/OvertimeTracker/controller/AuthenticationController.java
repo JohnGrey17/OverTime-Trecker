@@ -1,10 +1,10 @@
 package com.example.OvertimeTracker.controller;
 
 
-import com.example.OvertimeTracker.dto.MessageResponseDto;
-import com.example.OvertimeTracker.dto.UserLoginRequestDto;
-import com.example.OvertimeTracker.dto.UserLoginResponseDto;
-import com.example.OvertimeTracker.dto.UserRegistrationRequestDto;
+import com.example.OvertimeTracker.dto.user.MessageResponseDto;
+import com.example.OvertimeTracker.dto.user.UserLoginRequestDto;
+import com.example.OvertimeTracker.dto.user.UserLoginResponseDto;
+import com.example.OvertimeTracker.dto.user.UserRegistrationRequestDto;
 import com.example.OvertimeTracker.security.AuthenticationService;
 import com.example.OvertimeTracker.service.auth.UserAuthenticationService;
 import io.swagger.v3.oas.annotations.Operation;

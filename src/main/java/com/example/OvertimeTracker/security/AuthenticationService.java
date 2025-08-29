@@ -1,7 +1,7 @@
 package com.example.OvertimeTracker.security;
 
-import com.example.OvertimeTracker.dto.UserLoginRequestDto;
-import com.example.OvertimeTracker.dto.UserLoginResponseDto;
+import com.example.OvertimeTracker.dto.user.UserLoginRequestDto;
+import com.example.OvertimeTracker.dto.user.UserLoginResponseDto;
 import com.example.OvertimeTracker.model.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
