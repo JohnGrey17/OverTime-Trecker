@@ -31,7 +31,7 @@ public class OverTimeServiceImpl implements OvertimeTrackerService {
         return overtimeRepository.findAllByUserIdAndMonth(
                         userId, requestDto.getMonth(), requestDto.getYear()
                 ).stream()
-                .map(dtoFactory::createDto)
+                .map(dtoFactory::createMissingDayresponseDto)
                 .toList();
     }
 
