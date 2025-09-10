@@ -2,7 +2,7 @@ package com.example.OvertimeTracker.service.salaryCounter;
 
 import com.example.OvertimeTracker.model.MissingWorkDays;
 import com.example.OvertimeTracker.model.OverTimeWork;
-import com.example.OvertimeTracker.model.User;
+import com.example.OvertimeTracker.model.user.User;
 import com.example.OvertimeTracker.repositories.MissingWorkDaysRepository;
 import com.example.OvertimeTracker.repositories.OvertimeRepository;
 import com.example.OvertimeTracker.repositories.UserRepository;

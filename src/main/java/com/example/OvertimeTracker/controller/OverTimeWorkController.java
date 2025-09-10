@@ -3,7 +3,7 @@ package com.example.OvertimeTracker.controller;
 import com.example.OvertimeTracker.dto.overTime.OverTimeMonthRequestDto;
 import com.example.OvertimeTracker.dto.overTime.OverTimeResponseDto;
 import com.example.OvertimeTracker.dto.overTime.OvertimeCreateRequestDto;
-import com.example.OvertimeTracker.model.User;
+import com.example.OvertimeTracker.model.user.User;
 import com.example.OvertimeTracker.service.overTime.OvertimeTrackerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;

@@ -1,5 +1,8 @@
-    package com.example.OvertimeTracker.model;
+    package com.example.OvertimeTracker.model.user;
 
+    import com.example.OvertimeTracker.model.MissingWorkDays;
+    import com.example.OvertimeTracker.model.OverTimeWork;
+    import com.example.OvertimeTracker.model.SalaryTransaction;
     import com.example.OvertimeTracker.model.roles.Role;
     import jakarta.persistence.*;
     import lombok.Data;
@@ -23,7 +26,9 @@
         private String lastName;
         private BigDecimal salary;
         private String phoneNumber;
-        private String departmentName;
+
+        @Enumerated(EnumType.STRING)
+        private Set<Department> departmentName;
 
         @ManyToMany(fetch = FetchType.EAGER)
         @JoinTable(

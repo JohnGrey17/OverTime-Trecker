@@ -1,7 +1,7 @@
 package com.example.OvertimeTracker.controller;
 
 import com.example.OvertimeTracker.dto.salary.SalaryCounterRequestDto;
-import com.example.OvertimeTracker.model.User;
+import com.example.OvertimeTracker.model.user.User;
 import com.example.OvertimeTracker.service.salaryCounter.SalaryCounterService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;

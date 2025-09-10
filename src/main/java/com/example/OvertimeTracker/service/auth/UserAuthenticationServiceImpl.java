@@ -4,7 +4,7 @@ import com.example.OvertimeTracker.dto.user.MessageResponseDto;
 import com.example.OvertimeTracker.dto.user.UserRegistrationRequestDto;
 import com.example.OvertimeTracker.exceptions.types.UserException;
 import com.example.OvertimeTracker.mapper.UserMapper;
-import com.example.OvertimeTracker.model.User;
+import com.example.OvertimeTracker.model.user.User;
 import com.example.OvertimeTracker.model.roles.Role;
 import com.example.OvertimeTracker.model.roles.RoleName;
 import com.example.OvertimeTracker.repositories.RoleRepository;

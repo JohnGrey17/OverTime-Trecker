@@ -1,5 +1,6 @@
     package com.example.OvertimeTracker.model;
 
+    import com.example.OvertimeTracker.model.user.User;
     import jakarta.persistence.*;
     import lombok.Data;
 

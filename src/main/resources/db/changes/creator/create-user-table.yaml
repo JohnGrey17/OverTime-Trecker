@@ -21,7 +21,7 @@ databaseChangeLog:
                   type: VARCHAR(255)
               - column:
                   name: department_name
-                  type: VARCHAR(255)
+                  type: VARCHAR(255) # <- ЗБЕРІГАЄ String значення Enum
               - column:
                   name: email
                   type: VARCHAR(255)
@@ -38,4 +38,3 @@ databaseChangeLog:
               - column:
                   name: phone_number
                   type: VARCHAR(255)
-             
