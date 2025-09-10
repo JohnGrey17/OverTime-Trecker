@@ -22,6 +22,8 @@ public class AuthenticationService {
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(requestDto.email(), requestDto.password()));
 
+        System.out.println("👤 Principal class: " + authentication.getPrincipal().getClass().getName());
+
         User user = (User) authentication.getPrincipal();
 
         String token = jwtUtil.generateToken(user.getUsername());

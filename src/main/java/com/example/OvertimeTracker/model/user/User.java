@@ -28,7 +28,7 @@
         private String phoneNumber;
 
         @Enumerated(EnumType.STRING)
-        private Set<Department> departmentName;
+        private Department departmentName;
 
         @ManyToMany(fetch = FetchType.EAGER)
         @JoinTable(
