@@ -8,7 +8,7 @@ import java.time.LocalDate;
 @Data
 public class MissingWorkDateRequestDto {
 
-    private String Reason;
+    private String reason;
 
     private LocalDate date;
 

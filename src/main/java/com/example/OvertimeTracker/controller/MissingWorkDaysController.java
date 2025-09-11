@@ -26,7 +26,6 @@ public class MissingWorkDaysController {
     @Operation(summary = "Add a missed workday",
             description = "Creates a record for a missed workday with a reason and number of missing hours")
     @PreAuthorize("hasRole('USER')")
-    @GetMapping("/get")
     public void addMissingWorkDate(
             @RequestBody MissingWorkDateRequestDto requestDto, @AuthenticationPrincipal User user) {
         missingWorkDaysService.addMissingWorkDay(requestDto, user.getId());
@@ -35,7 +34,7 @@ public class MissingWorkDaysController {
     @GetMapping("/getBy/month")
     @PreAuthorize("hasRole('USER')")
     @Operation(summary = "Get all missing days by months",
-            description = "Get all missing days by months")
+            description = "Get all missiть ng days by months")
     public List<MissingDayResponseDto> getAllByUserIdAndPeriod(@RequestBody MissingDayMonthRequestDto requestDto, @AuthenticationPrincipal User user) {
         return missingWorkDaysService.getAllByMonth(user.getId(), requestDto);
     }
