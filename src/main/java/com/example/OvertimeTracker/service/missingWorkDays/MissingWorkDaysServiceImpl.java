@@ -1,6 +1,5 @@
     package com.example.OvertimeTracker.service.missingWorkDays;
 
-    import com.example.OvertimeTracker.dto.missingDate.MissingDayMonthRequestDto;
     import com.example.OvertimeTracker.dto.missingDate.MissingDayResponseDto;
     import com.example.OvertimeTracker.dto.missingDate.MissingWorkDateRequestDto;
     import com.example.OvertimeTracker.repositories.MissingWorkDaysRepository;
@@ -28,11 +27,11 @@
         }
 
         @Override
-        public List<MissingDayResponseDto> getAllByMonth(Long userId, MissingDayMonthRequestDto requestDto) {
+        public List<MissingDayResponseDto> getAllByMonth(Long userId, int year , int month) {
               return missingWorkDaysRepository.findAllByUserIdAndMonth(
-                            userId, requestDto.getMonth(), requestDto.getYear()
+                            userId, year, month
                     ).stream()
-                    .map(dtoFactory::createMissingDayresponseDto)
+                    .map(dtoFactory::createOverTimeResponseDto)
                     .toList();
         }
     }

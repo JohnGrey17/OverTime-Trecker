@@ -24,6 +24,7 @@ public class SalaryCounterServiceImpl implements SalaryCounterService {
     private final MonthWorkDaysCheckerService monthWorkDaysCheckerService;
     private final UserRepository userRepository;
 
+    @Override
     public BigDecimal calculateSalaryForUser(Long userId, LocalDate monthDate) {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new RuntimeException("User not found"));
@@ -39,11 +40,14 @@ public class SalaryCounterServiceImpl implements SalaryCounterService {
         BigDecimal salaryPerHour = salaryPerDay
                 .divide(BigDecimal.valueOf(8), 2, RoundingMode.HALF_UP);
 
-        // 🔹 4. Визначення місяця та року
+        // 🔹 4. Межі місяця
         int month = monthDate.getMonthValue();
         int year = monthDate.getYear();
 
-        // 🔹 5. Отримати пропущені години
+        LocalDate start = LocalDate.of(year, month, 1);
+        LocalDate end = start.withDayOfMonth(start.lengthOfMonth());
+
+        // 🔹 5. Пропущені години
         List<MissingWorkDays> missedDays = missingWorkDaysRepository
                 .findAllByUserIdAndMonth(userId, month, year);
 
@@ -51,12 +55,12 @@ public class SalaryCounterServiceImpl implements SalaryCounterService {
                 .map(MissingWorkDays::getMissingHours)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
 
-        // 🔹 6. Отримати овертайми
+        // 🔹 6. Овертайми (тепер через Between)
         List<OverTimeWork> overtimes = overtimeRepository
-                .findAllByUserIdAndMonth(userId, month, year);
+                .findAllByUserIdAndOverTimeDateRegistrationBetween(userId, start, end);
 
         BigDecimal totalOvertimePayment = overtimes.stream()
-                .map(o -> o.getOvertime_hours().multiply(o.getMultiplier()))
+                .map(o -> o.getOvertimeHours().multiply(o.getMultiplier()))
                 .reduce(BigDecimal.ZERO, BigDecimal::add)
                 .multiply(salaryPerHour);
 

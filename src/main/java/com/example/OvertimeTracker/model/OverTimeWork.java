@@ -3,7 +3,6 @@
     import com.example.OvertimeTracker.model.user.User;
     import jakarta.persistence.*;
     import lombok.Data;
-
     import java.math.BigDecimal;
     import java.time.LocalDate;
 
@@ -22,7 +21,8 @@
 
         private BigDecimal multiplier;
 
-        private BigDecimal overtime_hours;
+        @Column(name = "overtime_hours")
+        private BigDecimal overtimeHours;
 
         @ManyToOne
         @JoinColumn(name = "user_id")

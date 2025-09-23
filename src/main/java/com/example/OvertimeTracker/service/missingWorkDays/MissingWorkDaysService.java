@@ -11,5 +11,5 @@ import java.util.List;
 public interface MissingWorkDaysService {
     void addMissingWorkDay(MissingWorkDateRequestDto requestDto, Long userId);
 
-    List<MissingDayResponseDto> getAllByMonth(Long id, MissingDayMonthRequestDto requestDto);
+    List<MissingDayResponseDto> getAllByMonth(Long id, int year, int month);
 }

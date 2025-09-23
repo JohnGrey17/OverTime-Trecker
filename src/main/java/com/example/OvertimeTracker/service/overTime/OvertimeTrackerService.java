@@ -11,5 +11,5 @@ public interface OvertimeTrackerService {
 
     void addNewOvertime(OvertimeCreateRequestDto requestDto, Long userId);
 
-    List<OverTimeResponseDto> getAllByMonth(Long userId, OverTimeMonthRequestDto requestDto);
+    List<OverTimeResponseDto> getAllByMonth(Long userId, int year, int month);
 }

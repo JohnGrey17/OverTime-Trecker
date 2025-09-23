@@ -35,7 +35,7 @@ public class MissingWorkDaysController {
     @PreAuthorize("hasRole('USER')")
     @Operation(summary = "Get all missing days by months",
             description = "Get all missiть ng days by months")
-    public List<MissingDayResponseDto> getAllByUserIdAndPeriod(@RequestBody MissingDayMonthRequestDto requestDto, @AuthenticationPrincipal User user) {
-        return missingWorkDaysService.getAllByMonth(user.getId(), requestDto);
+    public List<MissingDayResponseDto> getAllByUserIdAndPeriod(@RequestParam int year, int month, @AuthenticationPrincipal User user) {
+        return missingWorkDaysService.getAllByMonth(user.getId() ,year, month);
     }
 }

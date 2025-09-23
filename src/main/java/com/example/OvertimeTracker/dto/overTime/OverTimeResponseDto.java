@@ -7,9 +7,10 @@ import java.time.LocalDate;
 
 @Data
 public class OverTimeResponseDto {
-    private LocalDate overTimeDateRegistrationTime;
+
+    private LocalDate overTimeDateRegistration;
 
     private String description;
 
-    private BigDecimal overtimeHoursCount;
+    private BigDecimal overtimeHours;
 }

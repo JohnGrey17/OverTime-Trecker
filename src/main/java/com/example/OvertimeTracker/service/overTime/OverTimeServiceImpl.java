@@ -1,6 +1,5 @@
 package com.example.OvertimeTracker.service.overTime;
 
-import com.example.OvertimeTracker.dto.overTime.OverTimeMonthRequestDto;
 import com.example.OvertimeTracker.dto.overTime.OverTimeResponseDto;
 import com.example.OvertimeTracker.dto.overTime.OvertimeCreateRequestDto;
 import com.example.OvertimeTracker.repositories.OvertimeRepository;
@@ -9,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.val;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -26,14 +26,16 @@ public class OverTimeServiceImpl implements OvertimeTrackerService {
         overtimeRepository.save(overtimeWork);
     }
 
-    @Override
-    public List<OverTimeResponseDto> getAllByMonth(Long userId, OverTimeMonthRequestDto requestDto) {
-        return overtimeRepository.findAllByUserIdAndMonth(
-                        userId, requestDto.getMonth(), requestDto.getYear()
-                ).stream()
-                .map(dtoFactory::createMissingDayresponseDto)
-                .toList();
-    }
+    public List<OverTimeResponseDto> getAllByMonth(Long userId, int year, int month) {
+        LocalDate start = LocalDate.of(year, month, 1);
+        LocalDate end = start.withDayOfMonth(start.lengthOfMonth());
 
+        List<OverTimeResponseDto> list = overtimeRepository.findAllByUserIdAndOverTimeDateRegistrationBetween(userId, start, end)
+                .stream()
+                .map(dtoFactory::createOverTimeResponseDto)
+                .toList();
+        System.out.println(list);
+        return list;
+    }
 
 }
