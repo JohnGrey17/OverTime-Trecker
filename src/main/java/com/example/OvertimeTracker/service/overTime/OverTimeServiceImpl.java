@@ -30,12 +30,10 @@ public class OverTimeServiceImpl implements OvertimeTrackerService {
         LocalDate start = LocalDate.of(year, month, 1);
         LocalDate end = start.withDayOfMonth(start.lengthOfMonth());
 
-        List<OverTimeResponseDto> list = overtimeRepository.findAllByUserIdAndOverTimeDateRegistrationBetween(userId, start, end)
+        return overtimeRepository.findAllByUser_IdAndOverTimeDateRegistrationBetween(userId, start, end)
                 .stream()
-                .map(dtoFactory::createOverTimeResponseDto)
+                .map(dtoFactory::createMissingDayResponseDto)
                 .toList();
-        System.out.println(list);
-        return list;
     }
 
 }

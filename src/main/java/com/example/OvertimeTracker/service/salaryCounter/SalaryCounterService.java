@@ -5,5 +5,5 @@ import java.time.LocalDate;
 
 public interface SalaryCounterService {
 
-    BigDecimal calculateSalaryForUser(Long userId, LocalDate monthDate);
+//    BigDecimal calculateSalaryForUser(Long userId, LocalDate monthDate);
 }

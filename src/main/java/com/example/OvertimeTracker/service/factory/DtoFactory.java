@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 public class DtoFactory {
 
 
-    public OverTimeResponseDto createOverTimeResponseDto(OverTimeWork overtime) {
+    public OverTimeResponseDto createMissingDayResponseDto(OverTimeWork overtime) {
         OverTimeResponseDto dto = new OverTimeResponseDto();
         dto.setOverTimeDateRegistration(overtime.getOverTimeDateRegistration());
         dto.setDescription(overtime.getDescription());
@@ -20,7 +20,7 @@ public class DtoFactory {
         return dto;
     }
 
-    public MissingDayResponseDto createOverTimeResponseDto(MissingWorkDays missingWorkDays) {
+    public MissingDayResponseDto createMissingDayResponseDto(MissingWorkDays missingWorkDays) {
         MissingDayResponseDto dto = new MissingDayResponseDto();
         dto.setDate(missingWorkDays.getDate());
         dto.setReason(missingWorkDays.getReason());

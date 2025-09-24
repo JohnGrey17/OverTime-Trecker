@@ -8,6 +8,7 @@
     import lombok.val;
     import org.springframework.stereotype.Service;
 
+    import java.time.LocalDate;
     import java.util.List;
 
     @Service
@@ -19,6 +20,7 @@
         private final com.example.OvertimeTracker.factory.WorkEntityFactory workEntityFactory;
 
         private final DtoFactory dtoFactory;
+
         @Override
         public void addMissingWorkDay(MissingWorkDateRequestDto requestDto, Long userId) {
 
@@ -28,10 +30,13 @@
 
         @Override
         public List<MissingDayResponseDto> getAllByMonth(Long userId, int year , int month) {
-              return missingWorkDaysRepository.findAllByUserIdAndMonth(
-                            userId, year, month
-                    ).stream()
-                    .map(dtoFactory::createOverTimeResponseDto)
+            LocalDate start = LocalDate.of(year, month, 1);
+            LocalDate end = start.withDayOfMonth(start.lengthOfMonth());
+
+
+            return missingWorkDaysRepository.findAllByUser_IdAndDateBetween(userId, start, end)
+                    .stream()
+                    .map(dtoFactory::createMissingDayResponseDto)
                     .toList();
         }
     }
