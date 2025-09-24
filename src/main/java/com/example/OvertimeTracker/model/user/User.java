@@ -3,6 +3,7 @@
     import com.example.OvertimeTracker.model.MissingWorkDays;
     import com.example.OvertimeTracker.model.OverTimeWork;
     import com.example.OvertimeTracker.model.SalaryTransaction;
+    import com.example.OvertimeTracker.model.department.Department;
     import com.example.OvertimeTracker.model.roles.Role;
     import jakarta.persistence.*;
     import lombok.Data;
@@ -27,10 +28,11 @@
         private BigDecimal salary;
         private String phoneNumber;
 
-        @Enumerated(EnumType.STRING)
-        private Department departmentName;
+        @ManyToOne
+        @JoinColumn(name = "department_id", referencedColumnName = "id")
+        private Department department;
 
-        @ManyToMany(fetch = FetchType.EAGER)
+        @ManyToMany(fetch = FetchType.LAZY)
         @JoinTable(
                 name = "users_roles",
                 joinColumns = @JoinColumn(name = "user_id"),

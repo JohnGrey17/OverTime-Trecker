@@ -2,11 +2,13 @@ package com.example.OvertimeTracker.service.auth;
 
 import com.example.OvertimeTracker.dto.user.MessageResponseDto;
 import com.example.OvertimeTracker.dto.user.UserRegistrationRequestDto;
+import com.example.OvertimeTracker.exceptions.types.DepartmentException;
 import com.example.OvertimeTracker.exceptions.types.UserException;
+import com.example.OvertimeTracker.model.department.Department;
 import com.example.OvertimeTracker.model.roles.Role;
 import com.example.OvertimeTracker.model.roles.RoleName;
-import com.example.OvertimeTracker.model.user.Department;
 import com.example.OvertimeTracker.model.user.User;
+import com.example.OvertimeTracker.repositories.DepartmentRepository;
 import com.example.OvertimeTracker.repositories.RoleRepository;
 import com.example.OvertimeTracker.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -15,7 +17,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
-import java.util.Arrays;
 import java.util.Set;
 
 @Service
@@ -25,6 +26,7 @@ public class UserAuthenticationServiceImpl implements UserAuthenticationService 
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
     private final PasswordEncoder passwordEncoder;
+    private final DepartmentRepository departmentRepository;
 
     @Override
     @Transactional
@@ -54,21 +56,17 @@ public class UserAuthenticationServiceImpl implements UserAuthenticationService 
         user.setSalary(BigDecimal.ZERO); // 👈 Початкова зарплата 0 або як треба
 
         // 🎯 Перетворення String → Set<Department>
-        Department department = mapDepartment(dto.getDepartmentName());
-        user.setDepartmentName(department);
+
+        user.setDepartment(getDepartment(dto.getDepartmentId()));
         return user;
     }
 
-    private Department mapDepartment(String name) {
-        if (name == null || name.isBlank()) {
-            throw new UserException("❌ Department is required");
-        }
+    private Department getDepartment(Long departmentId) {
 
-        return Arrays.stream(Department.values())
-                .filter(dept -> dept.getDisplayName().equalsIgnoreCase(name.trim()))
-                .findFirst()
-                .orElseThrow(() -> new UserException("❌ Unknown department: " + name));
+        return departmentRepository.findById(
+                departmentId).orElseThrow(() -> new DepartmentException("Department does not exist"));
     }
+
 
     // ✅ Валідація унікальності та правильності
     private void userRegistrationDetailsChecker(UserRegistrationRequestDto registrationRequestDto) {

@@ -1,5 +1,6 @@
 package com.example.OvertimeTracker.exceptions.hendler;
 
+import com.example.OvertimeTracker.exceptions.types.DepartmentException;
 import com.example.OvertimeTracker.exceptions.types.UserException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpHeaders;
@@ -42,7 +43,8 @@ public class CustomGlobalExceptionHandler extends ResponseEntityExceptionHandler
     }
 
     @ExceptionHandler({
-            UserException.class
+            UserException.class,
+            DepartmentException.class
 
 
     })

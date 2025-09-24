@@ -1,0 +1,237 @@
+- changeSet:
+    id: insert-departments-v2
+    author: serj
+    changes:
+      - insert:
+          tableName: departments
+          columns:
+            - column:
+                name: id
+                value: 1
+            - column:
+                name: name
+                value: ейчарня
+            - column:
+                name: code
+                value: HRNYA
+
+      - insert:
+          tableName: departments
+          columns:
+            - column:
+                name: id
+                value: 2
+            - column:
+                name: name
+                value: асфалія
+            - column:
+                name: code
+                value: ASFALIA
+
+      - insert:
+          tableName: departments
+          columns:
+            - column:
+                name: id
+                value: 3
+            - column:
+                name: name
+                value: чекап
+            - column:
+                name: code
+                value: CHECKUP
+
+      - insert:
+          tableName: departments
+          columns:
+            - column:
+                name: id
+                value: 4
+            - column:
+                name: name
+                value: Алаз
+            - column:
+                name: code
+                value: ALAZ
+
+      - insert:
+          tableName: departments
+          columns:
+            - column:
+                name: id
+                value: 5
+            - column:
+                name: name
+                value: Фурнітура
+            - column:
+                name: code
+                value: FURNITURA
+
+      - insert:
+          tableName: departments
+          columns:
+            - column:
+                name: id
+                value: 6
+            - column:
+                name: name
+                value: Ферма
+            - column:
+                name: code
+                value: FERMA
+
+      - insert:
+          tableName: departments
+          columns:
+            - column:
+                name: id
+                value: 7
+            - column:
+                name: name
+                value: Мольфари
+            - column:
+                name: code
+                value: MOLFARY
+
+      - insert:
+          tableName: departments
+          columns:
+            - column:
+                name: id
+                value: 8
+            - column:
+                name: name
+                value: Home
+            - column:
+                name: code
+                value: HOME
+
+      - insert:
+          tableName: departments
+          columns:
+            - column:
+                name: id
+                value: 9
+            - column:
+                name: name
+                value: Команда X
+            - column:
+                name: code
+                value: KOMANDAX
+
+      - insert:
+          tableName: departments
+          columns:
+            - column:
+                name: id
+                value: 10
+            - column:
+                name: name
+                value: Фксатори
+            - column:
+                name: code
+                value: FKSATORY
+
+      - insert:
+          tableName: departments
+          columns:
+            - column:
+                name: id
+                value: 11
+            - column:
+                name: name
+                value: Соніки
+            - column:
+                name: code
+                value: SONYKY
+
+      - insert:
+          tableName: departments
+          columns:
+            - column:
+                name: id
+                value: 12
+            - column:
+                name: name
+                value: KFC
+            - column:
+                name: code
+                value: KFC
+
+      - insert:
+          tableName: departments
+          columns:
+            - column:
+                name: id
+                value: 13
+            - column:
+                name: name
+                value: Пивозаври
+            - column:
+                name: code
+                value: PYVOZAVRY
+
+      - insert:
+          tableName: departments
+          columns:
+            - column:
+                name: id
+                value: 14
+            - column:
+                name: name
+                value: Скотч
+            - column:
+                name: code
+                value: SKOTCH
+
+      - insert:
+          tableName: departments
+          columns:
+            - column:
+                name: id
+                value: 15
+            - column:
+                name: name
+                value: Детальня
+            - column:
+                name: code
+                value: DETALNYA
+
+      - insert:
+          tableName: departments
+          columns:
+            - column:
+                name: id
+                value: 16
+            - column:
+                name: name
+                value: Катакомби
+            - column:
+                name: code
+                value: KATAKOMBY
+
+      - insert:
+          tableName: departments
+          columns:
+            - column:
+                name: id
+                value: 17
+            - column:
+                name: name
+                value: Сервісний ремонт
+            - column:
+                name: code
+                value: SERVICE
+
+      - insert:
+          tableName: departments
+          columns:
+            - column:
+                name: id
+                value: 18
+            - column:
+                name: name
+                value: Масони
+            - column:
+                name: code
+                value: MASONY

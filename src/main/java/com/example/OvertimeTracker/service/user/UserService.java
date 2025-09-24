@@ -7,4 +7,6 @@ import java.util.List;
 public interface UserService {
 
     List<UserResponseDto> findAllByDepartment(String departmentName);
+
+    UserResponseDto findUserById(Long userId);
 }

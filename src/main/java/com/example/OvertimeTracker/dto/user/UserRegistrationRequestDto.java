@@ -28,5 +28,5 @@ public class UserRegistrationRequestDto {
     @NotBlank
     private String phoneNumber;
     @NotBlank
-    private String departmentName;
+    private Long DepartmentId;
 }
