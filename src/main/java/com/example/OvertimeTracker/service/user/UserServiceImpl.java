@@ -33,4 +33,6 @@ public class UserServiceImpl implements UserService {
                 () -> new UserException("User does not exist"));
         return dtoFactory.createUserResponseDto(user);
     }
+
+    //TODO додати знайти користувачів по департменту , знайти користувача по номеру телефона , дістати всю інфу про овертайми  в календар по користувачові , дістати список всіх оверів та місів на відділ , перевірка ролей  і у адміна свій інтерфейс
 }
