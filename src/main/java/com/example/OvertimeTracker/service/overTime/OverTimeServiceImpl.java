@@ -26,6 +26,7 @@ public class OverTimeServiceImpl implements OvertimeTrackerService {
         overtimeRepository.save(overtimeWork);
     }
 
+
     public List<OverTimeResponseDto> getAllByMonth(Long userId, int year, int month) {
         LocalDate start = LocalDate.of(year, month, 1);
         LocalDate end = start.withDayOfMonth(start.lengthOfMonth());
@@ -36,4 +37,15 @@ public class OverTimeServiceImpl implements OvertimeTrackerService {
                 .toList();
     }
 
+    @Override
+    public List<OverTimeResponseDto> getAllByMonthAndUserId(Long userId, int year, int month) {
+
+        LocalDate start = LocalDate.of(year, month, 1);
+        LocalDate end = start.withDayOfMonth(start.lengthOfMonth());
+
+        return overtimeRepository.findAllByUser_IdAndOverTimeDateRegistrationBetween(userId, start, end)
+                .stream()
+                .map(dtoFactory::createMissingDayResponseDto)
+                .toList();
+    }
 }

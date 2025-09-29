@@ -39,4 +39,15 @@
                     .map(dtoFactory::createMissingDayResponseDto)
                     .toList();
         }
+
+        @Override
+        public List<MissingDayResponseDto> getAllByMonthAndUserId(Long userId, int year, int month) {
+            LocalDate start = LocalDate.of(year, month, 1);
+            LocalDate end = start.withDayOfMonth(start.lengthOfMonth());
+
+            return missingWorkDaysRepository.findAllByUser_IdAndDateBetween(userId, start, end)
+                    .stream()
+                    .map(dtoFactory::createMissingDayResponseDto)
+                    .toList();
+        }
     }
