@@ -19,3 +19,5 @@ databaseChangeLog:
       file: db/changes/creator/create-department-table.yaml
   - include:
       file: db/changes/insert/insert-basic-department-name.yaml
+  - include:
+      file: db/changes/insert/insert-super-user-to-user-table.yaml

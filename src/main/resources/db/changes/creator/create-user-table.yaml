@@ -20,9 +20,6 @@ databaseChangeLog:
                   name: last_name
                   type: VARCHAR(255)
               - column:
-                  name: department_name
-                  type: VARCHAR(255)
-              - column:
                   name: email
                   type: VARCHAR(255)
                   constraints:

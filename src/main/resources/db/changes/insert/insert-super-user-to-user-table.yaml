@@ -1,0 +1,43 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-superuser
+      author: serj
+      changes:
+
+
+        # 2. Додати суперкористувача
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: first_name
+                  value: Super
+              - column:
+                  name: last_name
+                  value: Admin
+              - column:
+                  name: email
+                  value: superadmin@example.com
+              - column:
+                  name: password
+                  value: $2a$10$UVaI9fkz.KPQmxbfGHLxeOZhXzyzQXDovgpfV2WQIzVJzMZ/pVMo6
+              - column:
+                  name: phone_number
+                  value: +380000000000
+              - column:
+                  name: salary
+                  value: 0
+              - column:
+                  name: department_id
+                  value: 1
+
+        # 3. Прив’язати суперкористувача до ролі ADMIN
+        - insert:
+            tableName: users_roles
+            columns:
+              - column:
+                  name: user_id
+                  valueComputed: "(SELECT id FROM users WHERE email = 'superadmin@example.com')"
+              - column:
+                  name: role_id
+                  valueComputed: "(SELECT id FROM roles WHERE name = 'ADMIN')"

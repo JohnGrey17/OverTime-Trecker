@@ -32,6 +32,7 @@ public class DtoFactory {
 
     public UserResponseDto createUserResponseDto(User user) {
         UserResponseDto dto = new UserResponseDto();
+        dto.setId(user.getId());
         dto.setEmail(user.getEmail());
         dto.setPhoneNumber(user.getPhoneNumber());
         dto.setFirstName(user.getFirstName());

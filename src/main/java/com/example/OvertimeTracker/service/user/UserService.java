@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface UserService {
 
-    List<UserResponseDto> findAllByDepartment(String departmentName);
+    List<UserResponseDto> getUsersByDepartment(Long departmentId);
 
-    UserResponseDto findUserById(Long userId);
+    UserResponseDto getUserById(Long userId);
 }

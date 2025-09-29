@@ -1,4 +1,4 @@
-package com.example.OvertimeTracker.controller;
+package com.example.OvertimeTracker.controller.user;
 
 
 import com.example.OvertimeTracker.dto.user.MessageResponseDto;
