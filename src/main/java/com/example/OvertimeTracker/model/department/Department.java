@@ -1,7 +1,6 @@
 package com.example.OvertimeTracker.model.department;
 
 import com.example.OvertimeTracker.model.user.User;
-import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;

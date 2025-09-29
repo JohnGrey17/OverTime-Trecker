@@ -17,4 +17,5 @@ databaseChangeLog:
       file: db/changes/creator/create-roles-in-table.yaml
   - include:
       file: db/changes/creator/create-department-table.yaml
-
+  - include:
+      file: db/changes/insert/insert-basic-department-name.yaml

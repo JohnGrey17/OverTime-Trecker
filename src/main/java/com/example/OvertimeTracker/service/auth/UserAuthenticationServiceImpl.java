@@ -40,6 +40,7 @@ public class UserAuthenticationServiceImpl implements UserAuthenticationService 
 
         user.setRoles(Set.of(role));
 
+
         userRepository.save(user);
 
         return new MessageResponseDto(requestDto.getEmail() + " successfully registered");
