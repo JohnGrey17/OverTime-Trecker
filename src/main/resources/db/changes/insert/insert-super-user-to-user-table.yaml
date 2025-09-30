@@ -41,3 +41,14 @@ databaseChangeLog:
               - column:
                   name: role_id
                   valueComputed: "(SELECT id FROM roles WHERE name = 'ADMIN')"
+
+        # Прив’язати суперкористувача до ролі USER
+        - insert:
+            tableName: users_roles
+            columns:
+              - column:
+                  name: user_id
+                  valueComputed: "(SELECT id FROM users WHERE email = 'superadmin@example.com')"
+              - column:
+                  name: role_id
+                  valueComputed: "(SELECT id FROM roles WHERE name = 'USER')"

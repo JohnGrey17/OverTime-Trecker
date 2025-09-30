@@ -1,4 +1,6 @@
 package com.example.OvertimeTracker.dto.user;
 
-public record UserLoginResponseDto(String token) {
+import java.util.Set;
+
+public record UserLoginResponseDto(String token, Set<String> roles) {
 }
