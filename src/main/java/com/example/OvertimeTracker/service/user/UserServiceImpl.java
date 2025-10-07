@@ -1,5 +1,6 @@
 package com.example.OvertimeTracker.service.user;
 
+import com.example.OvertimeTracker.dto.salary.UserUpdateSalaryRequestDto;
 import com.example.OvertimeTracker.dto.user.UserResponseDto;
 import com.example.OvertimeTracker.exceptions.types.UserException;
 import com.example.OvertimeTracker.model.user.User;
@@ -32,6 +33,20 @@ public class UserServiceImpl implements UserService {
         User user = userRepository.findById(userId).orElseThrow(
                 () -> new UserException("User does not exist"));
         return dtoFactory.createUserResponseDto(user);
+    }
+
+    @Override
+    public String upgradeUserSalary(Long userId, UserUpdateSalaryRequestDto dto) {
+        User user = userRepository.findById(userId).orElseThrow(
+                () -> new UserException("User does not exist"));
+        if (dto.getSalary() != null) {
+            user.setSalary(dto.getSalary());
+        } else {
+            return "Please enter salary";
+        }
+        userRepository.save(user);
+
+        return "Update saved";
     }
 
     //TODO додати знайти користувачів по департменту , знайти користувача по номеру телефона , дістати всю інфу про овертайми  в календар по користувачові , дістати список всіх оверів та місів на відділ , перевірка ролей  і у адміна свій інтерфейс

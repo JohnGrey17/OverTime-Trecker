@@ -1,14 +1,12 @@
 package com.example.OvertimeTracker.controller.user.admin;
 
+import com.example.OvertimeTracker.dto.salary.UserUpdateSalaryRequestDto;
 import com.example.OvertimeTracker.dto.user.UserResponseDto;
 import com.example.OvertimeTracker.service.user.UserService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -30,5 +28,11 @@ public class UserControllerAdmin {
     @PreAuthorize("hasRole('ADMIN')")
     public UserResponseDto getUserById(@PathVariable Long userId){
         return userService.getUserById(userId);
+    }
+
+    @PatchMapping("/sal/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
+    public String updateUserSalary(@PathVariable Long id, @RequestBody UserUpdateSalaryRequestDto dto) {
+            return userService.upgradeUserSalary(id, dto);
     }
 }
