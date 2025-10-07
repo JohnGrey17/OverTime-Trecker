@@ -22,7 +22,6 @@ public class UserControllerAdmin {
 
     @GetMapping("/department/{departmentId}")
     @PreAuthorize("hasRole('ADMIN')")
-    //todo виправити роль на адміна
     public List<UserResponseDto> getUsersByDepartment(@PathVariable Long departmentId) {
         return userService.getUsersByDepartment(departmentId);
     }

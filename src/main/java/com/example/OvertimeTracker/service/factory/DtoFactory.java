@@ -3,6 +3,7 @@ package com.example.OvertimeTracker.service.factory;
 import com.example.OvertimeTracker.dto.DepartmentResponseDto;
 import com.example.OvertimeTracker.dto.missingDate.MissingDayResponseDto;
 import com.example.OvertimeTracker.dto.overTime.OverTimeResponseDto;
+import com.example.OvertimeTracker.dto.user.UserOverMissingResponseDto;
 import com.example.OvertimeTracker.dto.user.UserResponseDto;
 import com.example.OvertimeTracker.model.MissingWorkDays;
 import com.example.OvertimeTracker.model.OverTimeWork;
@@ -10,6 +11,8 @@ import com.example.OvertimeTracker.model.department.Department;
 import com.example.OvertimeTracker.model.user.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 @RequiredArgsConstructor
 @Component
@@ -21,6 +24,7 @@ public class DtoFactory {
         dto.setOverTimeDateRegistration(overtime.getOverTimeDateRegistration());
         dto.setDescription(overtime.getDescription());
         dto.setOvertimeHours(overtime.getOvertimeHours());
+        dto.setMultiplier(overtime.getMultiplier());
         return dto;
     }
 
@@ -39,15 +43,29 @@ public class DtoFactory {
         dto.setPhoneNumber(user.getPhoneNumber());
         dto.setFirstName(user.getFirstName());
         dto.setLastName(user.getLastName());
+        dto.setSalary(user.getSalary());
         return dto;
     }
 
     public DepartmentResponseDto createDepartmentResponseDto(Department department) {
         DepartmentResponseDto dto = new DepartmentResponseDto();
-
         dto.setId(department.getId());
         dto.setName(department.getName());
         dto.setCode(department.getCode());
+        return dto;
+    }
+
+    public UserOverMissingResponseDto createUserMissingResponseDto(
+            UserResponseDto user,
+            List<OverTimeResponseDto> overTimeWork,
+            List<MissingDayResponseDto> missingWorkDays) {
+        UserOverMissingResponseDto dto = new UserOverMissingResponseDto();
+        dto.setUserId(user.getId());
+        dto.setFirstName(user.getFirstName());
+        dto.setLastName(user.getLastName());
+        dto.setBaseSalary(user.getSalary());
+        dto.setOvertimesDay(overTimeWork);
+        dto.setMissingsDay(missingWorkDays);
         return dto;
     }
 }

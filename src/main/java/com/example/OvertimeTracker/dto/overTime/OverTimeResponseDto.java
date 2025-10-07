@@ -13,4 +13,7 @@ public class OverTimeResponseDto {
     private String description;
 
     private BigDecimal overtimeHours;
+
+    private BigDecimal multiplier;
+
 }
