@@ -30,9 +30,9 @@ public class UserControllerAdmin {
         return userService.getUserById(userId);
     }
 
-    @PatchMapping("/sal/{id}")
+    @PostMapping("/sal")
     @PreAuthorize("hasRole('ADMIN')")
-    public String updateUserSalary(@PathVariable Long id, @RequestBody UserUpdateSalaryRequestDto dto) {
-            return userService.upgradeUserSalary(id, dto);
+    public String updateUserSalary(@RequestBody UserUpdateSalaryRequestDto dto) {
+            return userService.upgradeUserSalary(dto.getUserId(), dto);
     }
 }
