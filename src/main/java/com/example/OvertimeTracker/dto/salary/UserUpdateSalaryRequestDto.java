@@ -7,5 +7,6 @@ import java.math.BigDecimal;
 @Data
 public class UserUpdateSalaryRequestDto {
 
+    private Long userId;
     private BigDecimal salary;
 }
