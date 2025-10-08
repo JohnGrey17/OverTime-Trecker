@@ -1,24 +1,24 @@
-package com.example.OvertimeTracker.service.salaryCounter;
-
-import com.example.OvertimeTracker.model.MissingWorkDays;
-import com.example.OvertimeTracker.model.OverTimeWork;
-import com.example.OvertimeTracker.model.user.User;
-import com.example.OvertimeTracker.repositories.MissingWorkDaysRepository;
-import com.example.OvertimeTracker.repositories.OvertimeRepository;
-import com.example.OvertimeTracker.repositories.UserRepository;
-import com.example.OvertimeTracker.service.monthWorkDayChecher.MonthWorkDaysCheckerService;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
-
-import java.math.BigDecimal;
-import java.math.RoundingMode;
-import java.time.LocalDate;
-import java.util.List;
-
-
-@RequiredArgsConstructor
-public class SalaryCounterServiceImpl implements SalaryCounterService {
-
+//package com.example.OvertimeTracker.service.salaryCounter;
+//
+//import com.example.OvertimeTracker.model.MissingWorkDays;
+//import com.example.OvertimeTracker.model.OverTimeWork;
+//import com.example.OvertimeTracker.model.user.User;
+//import com.example.OvertimeTracker.repositories.MissingWorkDaysRepository;
+//import com.example.OvertimeTracker.repositories.OvertimeRepository;
+//import com.example.OvertimeTracker.repositories.UserRepository;
+//import com.example.OvertimeTracker.service.monthWorkDayChecher.MonthWorkDaysCheckerService;
+//import lombok.RequiredArgsConstructor;
+//import org.springframework.stereotype.Service;
+//
+//import java.math.BigDecimal;
+//import java.math.RoundingMode;
+//import java.time.LocalDate;
+//import java.util.List;
+//
+//
+//@RequiredArgsConstructor
+//public class SalaryCounterServiceImpl implements SalaryCounterService {
+//
 //    private final OvertimeRepository overtimeRepository;
 //    private final MissingWorkDaysRepository missingWorkDaysRepository;
 //    private final MonthWorkDaysCheckerService monthWorkDaysCheckerService;
@@ -73,6 +73,6 @@ public class SalaryCounterServiceImpl implements SalaryCounterService {
 ////                .add(totalOvertimePayment);
 ////
 ////        return finalSalary.setScale(2, RoundingMode.HALF_UP);
-
-}
-
+//    }
+//}
+//

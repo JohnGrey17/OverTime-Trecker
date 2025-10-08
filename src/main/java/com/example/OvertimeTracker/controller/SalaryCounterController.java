@@ -1,6 +1,6 @@
 package com.example.OvertimeTracker.controller;
 
-import com.example.OvertimeTracker.service.salaryCounter.SalaryCounterService;
+import com.example.OvertimeTracker.service.salaryCounter.aggregator.SalaryAggregatorService;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.web.bind.annotation.*;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 public class SalaryCounterController {
 
 
-    private final SalaryCounterService salaryCounterService;
+    private final SalaryAggregatorService salaryCounterService;
 
 //    @GetMapping("/get")
 //    @PreAuthorize("hasRole('USER')")
