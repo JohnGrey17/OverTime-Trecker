@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 @Data
-public class UserOverMissingResponseDto {
+public class UserCrmWithAllCount {
     private Long userId;
     private String firstName;
     private String lastName;
@@ -16,4 +16,13 @@ public class UserOverMissingResponseDto {
     private List<OverTimeResponseDto> overtimesDay;
     private List<MissingDayResponseDto> missingsDay;
     private BigDecimal totalMissingHours;
+
+    private BigDecimal hourRate;
+
+    private BigDecimal overtimeX1;
+    private BigDecimal overtimeX1_5;
+    private BigDecimal overtimeX2;
+    private BigDecimal totalSum;
+    private BigDecimal totalDeductions; // наприклад, може = missingHoursSum * hourRate
+
 }

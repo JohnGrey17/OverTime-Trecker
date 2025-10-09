@@ -1,6 +1,6 @@
 package com.example.OvertimeTracker.controller.crm;
 
-import com.example.OvertimeTracker.dto.user.UserOverMissingResponseDto;
+import com.example.OvertimeTracker.dto.user.UserCrmWithAllCount;
 import com.example.OvertimeTracker.service.crm.CrmService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -24,7 +24,7 @@ public class CrmController {
     @Tag(name = "CRM Controller",
             description = "Provides aggregated user data (overtime, missing days, salary) for each department.")
     @PreAuthorize("hasRole('ADMIN')")
-    public List<UserOverMissingResponseDto> getAllByDepartment(
+    public List<UserCrmWithAllCount> getAllByDepartment(
             @RequestParam Long departmentId,
             @RequestParam int year,
             @RequestParam int month) {
