@@ -38,17 +38,17 @@ Each record includes:
 ---
 ## 🗂️ Project Structure
 src/
-├── config/ # Security & app configuration
-├── controller/ # REST endpoints (CRM, users, salary)
-├── dto/ # Data transfer objects
-├── exceptions/ # Custom exception handlers
-├── mapper/ # DTO mappers
-├── model/ # JPA entities (User, OverTime, MissingDay, Department)
-├── repository/ # Spring Data JPA repositories
-├── security/ # JWT filter, authentication logic
-├── service/ # Business logic (salary calc, data processing)
-├── validator/ # Custom validation logic
-└── ProjectKServerApplication.java
+- ├── config/ # Security & app configuration
+- ├── controller/ # REST endpoints (CRM, users, salary)
+- ├── dto/ # Data transfer objects
+- ├── exceptions/ # Custom exception handlers
+- ├── mapper/ # DTO mappers
+- ├── model/ # JPA entities (User, OverTime, MissingDay, Department)
+- ├── repository/ # Spring Data JPA repositories
+- ├── security/ # JWT filter, authentication logic
+- ├── service/ # Business logic (salary calc, data processing)
+- ├── validator/ # Custom validation logic
+- └── ProjectKServerApplication.java
 ---
 
 ## 💻 Frontend Preview
