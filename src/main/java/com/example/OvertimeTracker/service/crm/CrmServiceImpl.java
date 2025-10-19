@@ -1,10 +1,12 @@
 package com.example.OvertimeTracker.service.crm;
 
+import com.example.OvertimeTracker.dto.expenses.ExpensesResponseDto;
 import com.example.OvertimeTracker.dto.missingDate.MissingDayResponseDto;
 import com.example.OvertimeTracker.dto.overTime.OverTimeResponseDto;
 import com.example.OvertimeTracker.dto.user.UserCrmSalaryCounterResponseDto;
 import com.example.OvertimeTracker.dto.user.UserCrmWithAllCount;
 import com.example.OvertimeTracker.dto.user.UserResponseDto;
+import com.example.OvertimeTracker.service.expenses.ExpensesService;
 import com.example.OvertimeTracker.service.factory.DtoFactory;
 import com.example.OvertimeTracker.service.missingWorkDays.MissingWorkDaysService;
 import com.example.OvertimeTracker.service.overTime.OvertimeTrackerService;
@@ -25,6 +27,7 @@ public class CrmServiceImpl implements CrmService {
     private final DtoFactory dtoFactory;
     private final UserService userService;
     private final SalaryAggregatorService salaryAggregatorService;
+    private final ExpensesService expensesService;
 
 
     @Override
@@ -38,14 +41,23 @@ public class CrmServiceImpl implements CrmService {
                     List<MissingDayResponseDto> missingDays = missingWorkDaysService
                             .getAllByMonthAndUserId(user.getId(), year, month);
 
+                    List<ExpensesResponseDto> expenses
+                            = expensesService.getAllByUserIdAndMonth(user.getId(), year, month);
+
                     UserCrmSalaryCounterResponseDto salaryCounterResponseDto
-                            = salaryAggregatorService.getCrmResponseDto(user.getSalary(), overtimes, missingDays);
+                            = salaryAggregatorService.getCrmResponseDto(user.getSalary(),
+                            overtimes,
+                            missingDays,
+                            expenses);
 
                     BigDecimal totalMissingHours = missingDays.stream()
                             .map(MissingDayResponseDto::getMissingHours)
                             .reduce(BigDecimal.ZERO, BigDecimal::add);
 
-                    UserCrmWithAllCount dto = dtoFactory.createUserMissingResponseDto(user, overtimes, missingDays, salaryCounterResponseDto );
+                    UserCrmWithAllCount dto = dtoFactory.createUserMissingResponseDto(user,
+                            overtimes,
+                            missingDays,
+                            salaryCounterResponseDto);
                     dto.setTotalMissingHours(totalMissingHours);
 
                     return dto;

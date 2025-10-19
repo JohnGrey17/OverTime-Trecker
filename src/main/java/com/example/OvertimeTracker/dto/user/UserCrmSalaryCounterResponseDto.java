@@ -13,6 +13,8 @@ public class UserCrmSalaryCounterResponseDto {
     private BigDecimal overtimeX1_5;
     private BigDecimal overtimeX2;
     private BigDecimal totalSum;
-    private BigDecimal totalDeductions; // наприклад, може = missingHoursSum * hourRate
-    private BigDecimal netSalary; // базова + овертайм - відрахування
+    private BigDecimal totalDeductions;
+    private BigDecimal netSalary;
+
+    private BigDecimal expensesAmount;
 }
