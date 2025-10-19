@@ -1,5 +1,6 @@
     package com.example.OvertimeTracker.model.user;
 
+    import com.example.OvertimeTracker.model.Expense;
     import com.example.OvertimeTracker.model.MissingWorkDays;
     import com.example.OvertimeTracker.model.OverTimeWork;
     import com.example.OvertimeTracker.model.SalaryTransaction;
@@ -54,6 +55,9 @@
 
         @OneToMany(mappedBy = "user",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
         private Set<MissingWorkDays> missingWorkDays = new HashSet<>();
+
+        @OneToMany(mappedBy = "user",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+        private Set<Expense> expenses = new HashSet<>();
 
         @Override
         public Collection<? extends GrantedAuthority> getAuthorities() {
