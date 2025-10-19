@@ -1,11 +1,13 @@
 package com.example.OvertimeTracker.service.factory;
 
 import com.example.OvertimeTracker.dto.DepartmentResponseDto;
+import com.example.OvertimeTracker.dto.expenses.ExpensesResponseDto;
 import com.example.OvertimeTracker.dto.missingDate.MissingDayResponseDto;
 import com.example.OvertimeTracker.dto.overTime.OverTimeResponseDto;
 import com.example.OvertimeTracker.dto.user.UserCrmSalaryCounterResponseDto;
 import com.example.OvertimeTracker.dto.user.UserCrmWithAllCount;
 import com.example.OvertimeTracker.dto.user.UserResponseDto;
+import com.example.OvertimeTracker.model.Expense;
 import com.example.OvertimeTracker.model.MissingWorkDays;
 import com.example.OvertimeTracker.model.OverTimeWork;
 import com.example.OvertimeTracker.model.department.Department;
@@ -68,7 +70,8 @@ public class DtoFactory {
     public UserCrmWithAllCount createUserMissingResponseDto(
             UserResponseDto user,
             List<OverTimeResponseDto> overTimeDay,
-            List<MissingDayResponseDto> missingTimeDay, UserCrmSalaryCounterResponseDto salaryCounterresponseDto) {
+            List<MissingDayResponseDto> missingTimeDay,
+            UserCrmSalaryCounterResponseDto salaryCounterresponseDto) {
         UserCrmWithAllCount dto = new UserCrmWithAllCount();
         dto.setUserId(user.getId());
         dto.setFirstName(user.getFirstName());
@@ -84,13 +87,15 @@ public class DtoFactory {
         dto.setTotalSum(salaryCounterresponseDto.getTotalSum());
         dto.setHourRate(round(salaryCounterresponseDto.getHourRate()));
 
+        dto.setExpensesTotalSum(salaryCounterresponseDto.getExpensesAmount());
         return dto;
     }
 
     public UserCrmSalaryCounterResponseDto createUserCrmResponseDto(
             Map<String, BigDecimal> overTimeSum,
             BigDecimal missingSum,
-            BigDecimal baseSalary) {
+            BigDecimal baseSalary,
+            BigDecimal expensesAmount) {
 
         BigDecimal totalOvertime = overTimeSum.getOrDefault(TOTAL_OVERTIME_SUM, BigDecimal.ZERO);
         BigDecimal hourRate = overTimeSum.getOrDefault(KEY_HOURLY_RATE, BigDecimal.ZERO);
@@ -104,12 +109,22 @@ public class DtoFactory {
         dto.setOvertimeX1_5(x15);
         dto.setOvertimeX2(x2);
         dto.setTotalDeductions(missingSum);
+        dto.setExpensesAmount(expensesAmount);
 
         BigDecimal totalSum = baseSalary.add(totalOvertime).subtract(missingSum)
                 .setScale(0, RoundingMode.HALF_UP);
 
         dto.setTotalSum(totalSum);
 
+        return dto;
+    }
+
+    public ExpensesResponseDto createExpenseResponseFro(Expense expense) {
+        ExpensesResponseDto dto = new ExpensesResponseDto();
+        dto.setDate(expense.getDate());
+        dto.setReason(expense.getReason());
+        dto.setSum(expense.getSum());
+        dto.setFilePath(expense.getFilePath());
         return dto;
     }
 
