@@ -1,0 +1,29 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-expense-table
+      author: serj
+      changes:
+        - createTable:
+            tableName: expenses
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: date
+                  type: DATE
+              - column:
+                  name: reason
+                  type: VARCHAR(255)
+              - column:
+                  name: sum
+                  type: DECIMAL
+              - column:
+                  name: file_path
+                  type: VARCHAR(255)
+
+
