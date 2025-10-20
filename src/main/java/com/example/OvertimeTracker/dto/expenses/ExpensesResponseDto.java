@@ -12,6 +12,8 @@ import java.time.LocalDate;
 @Setter
 public class ExpensesResponseDto {
 
+    private Long id;
+
     private LocalDate date;
 
     private String reason;

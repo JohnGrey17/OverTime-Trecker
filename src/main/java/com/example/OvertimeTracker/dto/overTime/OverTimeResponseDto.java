@@ -8,6 +8,7 @@ import java.time.LocalDate;
 @Data
 public class OverTimeResponseDto {
 
+    private Long id;
     private LocalDate overTimeDateRegistration;
 
     private String description;
