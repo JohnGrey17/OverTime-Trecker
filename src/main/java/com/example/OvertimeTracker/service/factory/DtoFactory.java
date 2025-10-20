@@ -33,6 +33,7 @@ public class DtoFactory {
 
     public OverTimeResponseDto createMissingDayResponseDto(OverTimeWork overtime) {
         OverTimeResponseDto dto = new OverTimeResponseDto();
+        dto.setId(overtime.getId());
         dto.setOverTimeDateRegistration(overtime.getOverTimeDateRegistration());
         dto.setDescription(overtime.getDescription());
         dto.setOvertimeHours(overtime.getOvertimeHours());
@@ -42,6 +43,7 @@ public class DtoFactory {
 
     public MissingDayResponseDto createMissingDayResponseDto(MissingWorkDays missingWorkDays) {
         MissingDayResponseDto dto = new MissingDayResponseDto();
+        dto.setId(missingWorkDays.getId());
         dto.setDate(missingWorkDays.getDate());
         dto.setReason(missingWorkDays.getReason());
         dto.setMissingHours(missingWorkDays.getMissingHours());
@@ -111,7 +113,7 @@ public class DtoFactory {
         dto.setTotalDeductions(missingSum);
         dto.setExpensesAmount(expensesAmount);
 
-        BigDecimal totalSum = baseSalary.add(totalOvertime).subtract(missingSum)
+        BigDecimal totalSum = baseSalary.add(totalOvertime).subtract(missingSum).add(expensesAmount)
                 .setScale(0, RoundingMode.HALF_UP);
 
         dto.setTotalSum(totalSum);
@@ -121,6 +123,7 @@ public class DtoFactory {
 
     public ExpensesResponseDto createExpenseResponseFro(Expense expense) {
         ExpensesResponseDto dto = new ExpensesResponseDto();
+        dto.setId(expense.getId());
         dto.setDate(expense.getDate());
         dto.setReason(expense.getReason());
         dto.setSum(expense.getSum());
