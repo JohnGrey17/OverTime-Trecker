@@ -1,6 +1,7 @@
 package com.example.OvertimeTracker.controller;
 
 import com.example.OvertimeTracker.dto.overTime.OverTimeResponseDto;
+import com.example.OvertimeTracker.dto.overTime.OverTimeUpdateRequestDto;
 import com.example.OvertimeTracker.dto.overTime.OvertimeCreateRequestDto;
 import com.example.OvertimeTracker.model.user.User;
 import com.example.OvertimeTracker.service.overTime.OvertimeTrackerService;
@@ -32,5 +33,12 @@ public class OverTimeWorkController {
             @AuthenticationPrincipal User user) {
         return overtimeTrackerService.getAllByMonth(user.getId(),year, month);
     }
+
+    @PostMapping("/update")
+    @PreAuthorize("hasRole('USER')")
+    public String updateOverTime(Long overTimeId, OverTimeUpdateRequestDto requestDto) {
+
+    }
+
 
 }
