@@ -1,32 +1,35 @@
 package com.example.OvertimeTracker.controller.user.admin;
 
 import com.example.OvertimeTracker.dto.expenses.ExpensesResponseDto;
-import com.example.OvertimeTracker.dto.missingDate.MissingDayResponseDto;
 import com.example.OvertimeTracker.service.expenses.ExpensesService;
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/expense")
-@Tag(name = "Expenses controller for Admin", description = "That controller give possibility act with expenses")
+@RequestMapping("/admin/expenses")
 @RequiredArgsConstructor
+@Tag(name = "Admin: Expenses", description = "Allows administrators to view user expenses by period.")
 public class ExpensesControllerAdmin {
 
     private final ExpensesService expensesService;
 
-    @GetMapping("/getBy")
+    @Operation(
+            summary = "Get user expenses",
+            description = "Fetches all expense records for a specific user and time period."
+    )
+    @GetMapping
+    @ResponseStatus(HttpStatus.OK)
     @PreAuthorize("hasRole('ADMIN')")
-    public List<ExpensesResponseDto> getAllByUserIdAndPeriod(
+    public List<ExpensesResponseDto> getExpensesByUserAndPeriod(
+            @RequestParam Long userId,
             @RequestParam int year,
-            @RequestParam int month,
-            @RequestParam Long userId) {
+            @RequestParam int month) {
         return expensesService.getAllByUserIdAndMonth(userId, year, month);
     }
 }
