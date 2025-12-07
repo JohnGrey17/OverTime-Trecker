@@ -1,4 +1,4 @@
-package com.example.OvertimeTracker.controller.user.admin;
+package com.example.OvertimeTracker.controller.admin.overtime;
 
 import com.example.OvertimeTracker.dto.overTime.OverTimeResponseDto;
 import com.example.OvertimeTracker.service.overTime.OvertimeTrackerService;
