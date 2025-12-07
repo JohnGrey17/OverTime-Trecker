@@ -15,3 +15,15 @@ databaseChangeLog:
               - column:
                   name: name
                   value: ADMIN
+        - insert:
+            tableName: roles
+            columns:
+              - column:
+                  name: name
+                  value: FINANCIAL_MANAGER
+        - insert:
+            tableName: roles
+            columns:
+              - column:
+                  name: name
+                  value: TEAM_LEAD
