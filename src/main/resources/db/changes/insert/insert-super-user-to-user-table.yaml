@@ -11,19 +11,44 @@ databaseChangeLog:
             columns:
               - column:
                   name: first_name
-                  value: Super
+                  value: Ярослав
               - column:
                   name: last_name
-                  value: Admin
+                  value: Корнієнко
               - column:
                   name: email
-                  value: superadmin@example.com
+                  value: yaroslav.korniienko@vyriy.com
               - column:
                   name: password
-                  value: $2a$10$UVaI9fkz.KPQmxbfGHLxeOZhXzyzQXDovgpfV2WQIzVJzMZ/pVMo6
+                  value: $2a$10$ZG.SSSNrRzmBpCR5FP45Ienjw.eEWRCpJZ9Lmp7xCsdVSeJ800Ujm
               - column:
                   name: phone_number
-                  value: +380000000000
+                  value: +38063260085
+              - column:
+                  name: salary
+                  value: 0
+              - column:
+                  name: department_id
+                  value: 1
+
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: first_name
+                  value: Сергій
+              - column:
+                  name: last_name
+                  value: Гайновський
+              - column:
+                  name: email
+                  value: Serhii.Hainovskyi@vyriy.com
+              - column:
+                  name: password
+                  value: $2a$10$ZG.SSSNrRzmBpCR5FP45Ienjw.eEWRCpJZ9Lmp7xCsdVSeJ800Ujm
+              - column:
+                  name: phone_number
+                  value: +380632481238
               - column:
                   name: salary
                   value: 0
@@ -37,7 +62,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: user_id
-                  valueComputed: "(SELECT id FROM users WHERE email = 'superadmin@example.com')"
+                  valueComputed: "(SELECT id FROM users WHERE email = 'yaroslav.korniienko@vyriy.com')"
               - column:
                   name: role_id
                   valueComputed: "(SELECT id FROM roles WHERE name = 'ADMIN')"
@@ -48,7 +73,29 @@ databaseChangeLog:
             columns:
               - column:
                   name: user_id
-                  valueComputed: "(SELECT id FROM users WHERE email = 'superadmin@example.com')"
+                  valueComputed: "(SELECT id FROM users WHERE email = 'yaroslav.korniienko@vyriy.com')"
+              - column:
+                  name: role_id
+                  valueComputed: "(SELECT id FROM roles WHERE name = 'USER')"
+
+        # 3. Прив’язати суперкористувача до ролі ADMIN
+        - insert:
+            tableName: users_roles
+            columns:
+              - column:
+                  name: user_id
+                  valueComputed: "(SELECT id FROM users WHERE email = 'Serhii.Hainovskyi@vyriy.com')"
+              - column:
+                  name: role_id
+                  valueComputed: "(SELECT id FROM roles WHERE name = 'ADMIN')"
+
+        # Прив’язати суперкористувача до ролі USER
+        - insert:
+            tableName: users_roles
+            columns:
+              - column:
+                  name: user_id
+                  valueComputed: "(SELECT id FROM users WHERE email = 'Serhii.Hainovskyi@vyriy.com')"
               - column:
                   name: role_id
                   valueComputed: "(SELECT id FROM roles WHERE name = 'USER')"
