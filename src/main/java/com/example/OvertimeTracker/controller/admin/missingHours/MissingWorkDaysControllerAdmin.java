@@ -1,8 +1,7 @@
-package com.example.OvertimeTracker.controller.user.admin;
+package com.example.OvertimeTracker.controller.admin.missingHours;
 
-import com.example.OvertimeTracker.dto.expenses.ExpensesResponseDto;
 import com.example.OvertimeTracker.dto.missingDate.MissingDayResponseDto;
-import com.example.OvertimeTracker.service.expenses.ExpensesService;
+import com.example.OvertimeTracker.service.missingWorkDays.MissingWorkDaysService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -13,20 +12,20 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RestController
-@RequestMapping("/expense")
-@Tag(name = "Expenses controller for Admin", description = "That controller give possibility act with expenses")
+@RestController()
 @RequiredArgsConstructor
-public class ExpensesControllerAdmin {
+@RequestMapping("/missing-hours")
+@Tag(name = "Missing work days",description = "That controller allow admin get all user`s missing work days by parameters")
+public class MissingWorkDaysControllerAdmin {
 
-    private final ExpensesService expensesService;
+    private final MissingWorkDaysService missingWorkDaysService;
 
     @GetMapping("/getBy")
     @PreAuthorize("hasRole('ADMIN')")
-    public List<ExpensesResponseDto> getAllByUserIdAndPeriod(
+    public List<MissingDayResponseDto> getAllByUserIdAndPeriod(
             @RequestParam int year,
             @RequestParam int month,
             @RequestParam Long userId) {
-        return expensesService.getAllByUserIdAndMonth(userId, year, month);
+        return missingWorkDaysService.getAllByMonthAndUserId(userId, year, month);
     }
 }

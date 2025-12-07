@@ -1,4 +1,4 @@
-package com.example.OvertimeTracker.controller.user.admin;
+package com.example.OvertimeTracker.controller.admin.user;
 
 import com.example.OvertimeTracker.dto.salary.UserUpdateSalaryRequestDto;
 import com.example.OvertimeTracker.dto.user.UserResponseDto;
