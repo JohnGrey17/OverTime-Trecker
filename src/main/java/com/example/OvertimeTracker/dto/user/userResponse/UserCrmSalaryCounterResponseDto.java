@@ -1,4 +1,4 @@
-package com.example.OvertimeTracker.dto.user;
+package com.example.OvertimeTracker.dto.user.userResponse;
 
 import lombok.Data;
 

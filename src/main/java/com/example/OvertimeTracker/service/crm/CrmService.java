@@ -1,6 +1,6 @@
 package com.example.OvertimeTracker.service.crm;
 
-import com.example.OvertimeTracker.dto.user.UserCrmWithAllCount;
+import com.example.OvertimeTracker.dto.user.userResponse.UserCrmWithAllCount;
 
 import java.util.List;
 

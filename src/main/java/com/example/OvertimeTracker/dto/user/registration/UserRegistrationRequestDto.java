@@ -1,4 +1,4 @@
-package com.example.OvertimeTracker.dto.user;
+package com.example.OvertimeTracker.dto.user.registration;
 
 import com.example.OvertimeTracker.validator.FieldMatch;
 import jakarta.validation.constraints.Email;

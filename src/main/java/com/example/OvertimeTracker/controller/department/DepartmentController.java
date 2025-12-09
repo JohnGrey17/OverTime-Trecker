@@ -1,6 +1,6 @@
 package com.example.OvertimeTracker.controller.department;
 
-import com.example.OvertimeTracker.dto.DepartmentResponseDto;
+import com.example.OvertimeTracker.dto.department.DepartmentResponseDto;
 import com.example.OvertimeTracker.service.department.DepartmentService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;

@@ -20,7 +20,7 @@ databaseChangeLog:
                   value: yaroslav.korniienko@vyriy.com
               - column:
                   name: password
-                  value: $2a$10$ZG.SSSNrRzmBpCR5FP45Ienjw.eEWRCpJZ9Lmp7xCsdVSeJ800Ujm
+                  value: $2a$10$m.EthCPAczWK6RtpaTGA2.uT5YAUYPlhzNPRTRkQIvS.K9v4djMQy
               - column:
                   name: phone_number
                   value: +38063260085
@@ -45,7 +45,7 @@ databaseChangeLog:
                   value: Serhii.Hainovskyi@vyriy.com
               - column:
                   name: password
-                  value: $2a$10$ZG.SSSNrRzmBpCR5FP45Ienjw.eEWRCpJZ9Lmp7xCsdVSeJ800Ujm
+                  value: $2a$10$m.EthCPAczWK6RtpaTGA2.uT5YAUYPlhzNPRTRkQIvS.K9v4djMQy
               - column:
                   name: phone_number
                   value: +380632481238

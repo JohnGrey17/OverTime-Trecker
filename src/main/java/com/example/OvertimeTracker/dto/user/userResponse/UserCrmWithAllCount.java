@@ -1,4 +1,4 @@
-package com.example.OvertimeTracker.dto.user;
+package com.example.OvertimeTracker.dto.user.userResponse;
 
 import com.example.OvertimeTracker.dto.missingDate.MissingDayResponseDto;
 import com.example.OvertimeTracker.dto.overTime.OverTimeResponseDto;

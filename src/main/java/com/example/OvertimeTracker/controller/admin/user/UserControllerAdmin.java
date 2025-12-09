@@ -1,7 +1,7 @@
 package com.example.OvertimeTracker.controller.admin.user;
 
 import com.example.OvertimeTracker.dto.salary.UserUpdateSalaryRequestDto;
-import com.example.OvertimeTracker.dto.user.UserResponseDto;
+import com.example.OvertimeTracker.dto.user.userResponse.UserResponseDto;
 import com.example.OvertimeTracker.service.user.UserService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -35,4 +35,5 @@ public class UserControllerAdmin {
     public String updateUserSalary(@RequestBody UserUpdateSalaryRequestDto dto) {
             return userService.upgradeUserSalary(dto.getUserId(), dto);
     }
+    //toDO newd to add controller that change user Roles
 }

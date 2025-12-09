@@ -1,12 +1,12 @@
 package com.example.OvertimeTracker.service.factory;
 
-import com.example.OvertimeTracker.dto.DepartmentResponseDto;
+import com.example.OvertimeTracker.dto.department.DepartmentResponseDto;
 import com.example.OvertimeTracker.dto.expenses.ExpensesResponseDto;
 import com.example.OvertimeTracker.dto.missingDate.MissingDayResponseDto;
 import com.example.OvertimeTracker.dto.overTime.OverTimeResponseDto;
-import com.example.OvertimeTracker.dto.user.UserCrmSalaryCounterResponseDto;
-import com.example.OvertimeTracker.dto.user.UserCrmWithAllCount;
-import com.example.OvertimeTracker.dto.user.UserResponseDto;
+import com.example.OvertimeTracker.dto.user.userResponse.UserCrmSalaryCounterResponseDto;
+import com.example.OvertimeTracker.dto.user.userResponse.UserCrmWithAllCount;
+import com.example.OvertimeTracker.dto.user.userResponse.UserResponseDto;
 import com.example.OvertimeTracker.model.Expense;
 import com.example.OvertimeTracker.model.MissingWorkDays;
 import com.example.OvertimeTracker.model.OverTimeWork;

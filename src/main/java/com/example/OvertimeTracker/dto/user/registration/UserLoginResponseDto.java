@@ -1,4 +1,4 @@
-package com.example.OvertimeTracker.dto.user;
+package com.example.OvertimeTracker.dto.user.registration;
 
 import java.util.Set;
 

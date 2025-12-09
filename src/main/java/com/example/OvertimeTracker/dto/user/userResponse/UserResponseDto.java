@@ -1,4 +1,4 @@
-package com.example.OvertimeTracker.dto.user;
+package com.example.OvertimeTracker.dto.user.userResponse;
 
 import lombok.Data;
 
@@ -12,4 +12,5 @@ public class UserResponseDto {
     private String lastName;
     private String phoneNumber;
     private BigDecimal salary;
+
 }

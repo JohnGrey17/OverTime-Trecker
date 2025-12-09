@@ -1,6 +1,7 @@
 package com.example.OvertimeTracker.service.overTime;
 
 import com.example.OvertimeTracker.dto.overTime.OverTimeResponseDto;
+import com.example.OvertimeTracker.dto.overTime.OverTimeUpdateRequestDto;
 import com.example.OvertimeTracker.dto.overTime.OvertimeCreateRequestDto;
 
 import java.util.List;
@@ -12,4 +13,9 @@ public interface OvertimeTrackerService {
     List<OverTimeResponseDto> getAllByMonth(Long userId, int year, int month);
 
     List<OverTimeResponseDto> getAllByMonthAndUserId(Long userId, int year, int month);
+
+    void updateOverTime(Long userId,OverTimeUpdateRequestDto requestDto);
+
+    void deleteOverTime(Long id, Long overTimeId);
+
 }

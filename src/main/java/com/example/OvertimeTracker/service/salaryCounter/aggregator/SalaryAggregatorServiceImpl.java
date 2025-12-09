@@ -3,7 +3,7 @@ package com.example.OvertimeTracker.service.salaryCounter.aggregator;
 import com.example.OvertimeTracker.dto.expenses.ExpensesResponseDto;
 import com.example.OvertimeTracker.dto.missingDate.MissingDayResponseDto;
 import com.example.OvertimeTracker.dto.overTime.OverTimeResponseDto;
-import com.example.OvertimeTracker.dto.user.UserCrmSalaryCounterResponseDto;
+import com.example.OvertimeTracker.dto.user.userResponse.UserCrmSalaryCounterResponseDto;
 import com.example.OvertimeTracker.service.factory.DtoFactory;
 import com.example.OvertimeTracker.service.salaryCounter.expensesCounter.ExpensesCounterService;
 import com.example.OvertimeTracker.service.salaryCounter.missingdaysCounter.MissingHoursSalaryCounter;

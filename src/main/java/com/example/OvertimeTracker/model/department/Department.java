@@ -1,29 +1,29 @@
-package com.example.OvertimeTracker.model.department;
+    package com.example.OvertimeTracker.model.department;
 
-import com.example.OvertimeTracker.model.user.User;
-import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+    import com.example.OvertimeTracker.model.user.User;
+    import jakarta.persistence.*;
+    import lombok.Getter;
+    import lombok.Setter;
 
-import java.util.HashSet;
-import java.util.Set;
+    import java.util.HashSet;
+    import java.util.Set;
 
-@Entity
-@Table(name = "departments")
-@Getter
-@Setter
-public class Department {
+    @Entity
+    @Table(name = "departments")
+    @Getter
+    @Setter
+    public class Department {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        private Long id;
 
-    private String name;
+        private String name;
 
-    @Column(unique = true, nullable = false)
-    private String code;
+        @Column(unique = true, nullable = false)
+        private String code;
 
-    @OneToMany(mappedBy = "department", fetch = FetchType.LAZY)
-    private Set<User> users = new HashSet<>();
+        @OneToMany(mappedBy = "department", fetch = FetchType.LAZY)
+        private Set<User> users = new HashSet<>();
 
-}
+    }

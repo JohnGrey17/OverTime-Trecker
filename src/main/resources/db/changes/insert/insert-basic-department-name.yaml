@@ -7,9 +7,6 @@ databaseChangeLog:
             tableName: departments
             columns:
              - column:
-                name: id
-                value: 1
-             - column:
                 name: name
                 value: R.E.D
              - column:

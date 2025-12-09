@@ -1,6 +1,6 @@
 package com.example.OvertimeTracker.controller.crm;
 
-import com.example.OvertimeTracker.dto.user.UserCrmWithAllCount;
+import com.example.OvertimeTracker.dto.user.userResponse.UserCrmWithAllCount;
 import com.example.OvertimeTracker.service.crm.CrmService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;

@@ -13,14 +13,10 @@ public class CorsConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins(
-                                "http://localhost:63342",  // якщо відкриваєш через JetBrains preview
-                                "http://127.0.0.1:5500",   // 👈 твій реальний origin (Live Server / VSCode)
-                                "http://localhost:5500"    // 👈 на всяк випадок
-                        )
-                        .allowedMethods("GET", "POST", "PATCH", "PUT", "DELETE", "OPTIONS")
+                        .allowedOriginPatterns("*")      // ✅ замість allowedOrigins("*")
+                        .allowedMethods("*")
                         .allowedHeaders("*")
-                        .allowCredentials(true)
+                        .allowCredentials(false)         // ❗ або просто прибери цей рядок
                         .maxAge(3600);
             }
         };

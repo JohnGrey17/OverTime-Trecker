@@ -1,9 +1,7 @@
 package com.example.OvertimeTracker.security;
 
-import com.example.OvertimeTracker.dto.user.UserLoginRequestDto;
-import com.example.OvertimeTracker.dto.user.UserLoginResponseDto;
-import com.example.OvertimeTracker.model.roles.Role;
-import com.example.OvertimeTracker.model.roles.RoleName;
+import com.example.OvertimeTracker.dto.user.registration.UserLoginRequestDto;
+import com.example.OvertimeTracker.dto.user.registration.UserLoginResponseDto;
 import com.example.OvertimeTracker.model.user.User;
 import com.example.OvertimeTracker.repositories.RoleRepository;
 import lombok.RequiredArgsConstructor;
@@ -12,8 +10,6 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
-import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
