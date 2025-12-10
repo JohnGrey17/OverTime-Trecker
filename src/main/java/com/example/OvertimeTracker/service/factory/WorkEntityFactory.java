@@ -4,7 +4,7 @@ import com.example.OvertimeTracker.dto.expenses.ExpensesRequestDto;
 import com.example.OvertimeTracker.dto.missingDate.MissingWorkDateRequestDto;
 import com.example.OvertimeTracker.dto.overTime.OvertimeCreateRequestDto;
 import com.example.OvertimeTracker.exceptions.types.UserException;
-import com.example.OvertimeTracker.model.Expense;
+import com.example.OvertimeTracker.model.Bonus;
 import com.example.OvertimeTracker.model.MissingWorkDays;
 import com.example.OvertimeTracker.model.OverTimeWork;
 import com.example.OvertimeTracker.model.user.User;
@@ -43,14 +43,14 @@ public class WorkEntityFactory {
         return entity;
     }
 
-    public Expense createExpense(ExpensesRequestDto requestDto, Long userId) {
+    public Bonus createExpense(ExpensesRequestDto requestDto, Long userId) {
         User user = getUser(userId);
-        Expense expense = new Expense();
-        expense.setDate(requestDto.getDate());
-        expense.setReason(requestDto.getReason());
-        expense.setSum(requestDto.getSum());
-        expense.setUser(user);
-        return expense;
+        Bonus bonus = new Bonus();
+        bonus.setDate(requestDto.getDate());
+        bonus.setReason(requestDto.getReason());
+        bonus.setSum(requestDto.getSum());
+        bonus.setUser(user);
+        return bonus;
 
     }
 

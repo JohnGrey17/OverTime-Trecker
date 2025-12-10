@@ -1,8 +1,8 @@
-package com.example.OvertimeTracker.service.expenses;
+package com.example.OvertimeTracker.service.bonus;
 
 import com.example.OvertimeTracker.dto.expenses.ExpensesResponseDto;
 import com.example.OvertimeTracker.dto.expenses.ExpensesRequestDto;
-import com.example.OvertimeTracker.model.Expense;
+import com.example.OvertimeTracker.model.Bonus;
 import com.example.OvertimeTracker.repositories.ExpensesRepository;
 import com.example.OvertimeTracker.service.factory.DtoFactory;
 import lombok.RequiredArgsConstructor;
@@ -13,17 +13,17 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class ExpensesServiceImpl implements ExpensesService {
+public class BonusServiceImpl implements BonusService {
 
     private final com.example.OvertimeTracker.factory.WorkEntityFactory workEntityFactory;
     private final ExpensesRepository expensesRepository;
     private final DtoFactory dtoFactory;
 
     @Override
-    public String addNewExpense(Long userId, ExpensesRequestDto requestDto) {
+    public String createBonus(Long userId, ExpensesRequestDto requestDto) {
 
-        Expense expense = workEntityFactory.createExpense(requestDto, userId);
-        expensesRepository.save(expense);
+        Bonus bonus = workEntityFactory.createExpense(requestDto, userId);
+        expensesRepository.save(bonus);
         return "Saved was success";
     }
 

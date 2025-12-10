@@ -1,8 +1,7 @@
 package com.example.OvertimeTracker.controller.admin;
 
 import com.example.OvertimeTracker.dto.expenses.ExpensesResponseDto;
-import com.example.OvertimeTracker.dto.missingDate.MissingDayResponseDto;
-import com.example.OvertimeTracker.service.expenses.ExpensesService;
+import com.example.OvertimeTracker.service.bonus.BonusService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -19,7 +18,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ExpensesControllerAdmin {
 
-    private final ExpensesService expensesService;
+    private final BonusService expensesService;
 
     @GetMapping("/getBy")
     @PreAuthorize("hasRole('ADMIN')")

@@ -6,7 +6,7 @@ import com.example.OvertimeTracker.dto.overTime.OverTimeResponseDto;
 import com.example.OvertimeTracker.dto.user.UserCrmSalaryCounterResponseDto;
 import com.example.OvertimeTracker.dto.user.UserCrmWithAllCount;
 import com.example.OvertimeTracker.dto.user.UserResponseDto;
-import com.example.OvertimeTracker.service.expenses.ExpensesService;
+import com.example.OvertimeTracker.service.bonus.BonusService;
 import com.example.OvertimeTracker.service.factory.DtoFactory;
 import com.example.OvertimeTracker.service.missingWorkDays.MissingWorkDaysService;
 import com.example.OvertimeTracker.service.overTime.OvertimeTrackerService;
@@ -27,7 +27,7 @@ public class CrmServiceImpl implements CrmService {
     private final DtoFactory dtoFactory;
     private final UserService userService;
     private final SalaryAggregatorService salaryAggregatorService;
-    private final ExpensesService expensesService;
+    private final BonusService expensesService;
 
 
     @Override

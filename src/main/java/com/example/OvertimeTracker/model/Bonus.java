@@ -10,11 +10,11 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "expenses")
+@Table(name = "bonus")
 @Getter
 @Setter
 @ToString
-public class Expense {
+public class Bonus {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,8 +25,6 @@ public class Expense {
     private String reason;
 
     private BigDecimal sum;
-
-    private String filePath;
 
     @ManyToOne
     @JoinColumn(name = "user_id")

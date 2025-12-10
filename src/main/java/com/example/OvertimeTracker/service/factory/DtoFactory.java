@@ -7,7 +7,7 @@ import com.example.OvertimeTracker.dto.overTime.OverTimeResponseDto;
 import com.example.OvertimeTracker.dto.user.UserCrmSalaryCounterResponseDto;
 import com.example.OvertimeTracker.dto.user.UserCrmWithAllCount;
 import com.example.OvertimeTracker.dto.user.UserResponseDto;
-import com.example.OvertimeTracker.model.Expense;
+import com.example.OvertimeTracker.model.Bonus;
 import com.example.OvertimeTracker.model.MissingWorkDays;
 import com.example.OvertimeTracker.model.OverTimeWork;
 import com.example.OvertimeTracker.model.department.Department;
@@ -121,13 +121,13 @@ public class DtoFactory {
         return dto;
     }
 
-    public ExpensesResponseDto createExpenseResponseFro(Expense expense) {
+    public ExpensesResponseDto createExpenseResponseFro(Bonus bonus) {
         ExpensesResponseDto dto = new ExpensesResponseDto();
-        dto.setId(expense.getId());
-        dto.setDate(expense.getDate());
-        dto.setReason(expense.getReason());
-        dto.setSum(expense.getSum());
-        dto.setFilePath(expense.getFilePath());
+        dto.setId(bonus.getId());
+        dto.setDate(bonus.getDate());
+        dto.setReason(bonus.getReason());
+        dto.setSum(bonus.getSum());
+        dto.setFilePath(bonus.getFilePath());
         return dto;
     }
 
