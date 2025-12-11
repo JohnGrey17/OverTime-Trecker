@@ -10,7 +10,7 @@ import java.time.LocalDate;
 @ToString
 @Getter
 @Setter
-public class ExpensesResponseDto {
+public class BonusResponseDto {
 
     private Long id;
 
@@ -20,5 +20,5 @@ public class ExpensesResponseDto {
 
     private BigDecimal sum;
 
-    private String filePath;
+
 }

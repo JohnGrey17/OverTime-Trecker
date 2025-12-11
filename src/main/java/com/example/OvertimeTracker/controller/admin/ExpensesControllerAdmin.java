@@ -1,6 +1,6 @@
 package com.example.OvertimeTracker.controller.admin;
 
-import com.example.OvertimeTracker.dto.expenses.ExpensesResponseDto;
+import com.example.OvertimeTracker.dto.expenses.BonusResponseDto;
 import com.example.OvertimeTracker.service.bonus.BonusService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -22,7 +22,7 @@ public class ExpensesControllerAdmin {
 
     @GetMapping("/getBy")
     @PreAuthorize("hasRole('ADMIN')")
-    public List<ExpensesResponseDto> getAllByUserIdAndPeriod(
+    public List<BonusResponseDto> getAllByUserIdAndPeriod(
             @RequestParam int year,
             @RequestParam int month,
             @RequestParam Long userId) {

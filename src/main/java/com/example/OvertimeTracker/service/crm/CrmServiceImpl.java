@@ -1,6 +1,6 @@
 package com.example.OvertimeTracker.service.crm;
 
-import com.example.OvertimeTracker.dto.expenses.ExpensesResponseDto;
+import com.example.OvertimeTracker.dto.expenses.BonusResponseDto;
 import com.example.OvertimeTracker.dto.missingDate.MissingDayResponseDto;
 import com.example.OvertimeTracker.dto.overTime.OverTimeResponseDto;
 import com.example.OvertimeTracker.dto.user.UserCrmSalaryCounterResponseDto;
@@ -41,7 +41,7 @@ public class CrmServiceImpl implements CrmService {
                     List<MissingDayResponseDto> missingDays = missingWorkDaysService
                             .getAllByMonthAndUserId(user.getId(), year, month);
 
-                    List<ExpensesResponseDto> expenses
+                    List<BonusResponseDto> expenses
                             = expensesService.getAllByUserIdAndMonth(user.getId(), year, month);
 
                     UserCrmSalaryCounterResponseDto salaryCounterResponseDto

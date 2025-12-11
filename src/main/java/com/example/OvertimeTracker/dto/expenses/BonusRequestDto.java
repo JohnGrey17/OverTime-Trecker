@@ -10,7 +10,7 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @ToString
-public class ExpensesRequestDto {
+public class BonusRequestDto {
 
     private LocalDate date;
 

@@ -25,6 +25,5 @@ public class UserCrmWithAllCount {
     private BigDecimal totalSum;
     private BigDecimal totalDeductions;
 
-    private BigDecimal expensesTotalSum;
-
+    private BigDecimal bonusTotalSum;
 }

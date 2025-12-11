@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "bonus")
+@Table(name = "bonuses")
 @Getter
 @Setter
 @ToString

@@ -1,6 +1,6 @@
 package com.example.OvertimeTracker.factory;
 
-import com.example.OvertimeTracker.dto.expenses.ExpensesRequestDto;
+import com.example.OvertimeTracker.dto.expenses.BonusRequestDto;
 import com.example.OvertimeTracker.dto.missingDate.MissingWorkDateRequestDto;
 import com.example.OvertimeTracker.dto.overTime.OvertimeCreateRequestDto;
 import com.example.OvertimeTracker.exceptions.types.UserException;
@@ -43,7 +43,7 @@ public class WorkEntityFactory {
         return entity;
     }
 
-    public Bonus createExpense(ExpensesRequestDto requestDto, Long userId) {
+    public Bonus createBonus(BonusRequestDto requestDto, Long userId) {
         User user = getUser(userId);
         Bonus bonus = new Bonus();
         bonus.setDate(requestDto.getDate());

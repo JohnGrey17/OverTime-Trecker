@@ -8,7 +8,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Repository
-public interface ExpensesRepository extends JpaRepository <Bonus, Long> {
+public interface BonusRepository extends JpaRepository <Bonus, Long> {
 
     List<Bonus> findAllByUser_IdAndDateBetween
             (

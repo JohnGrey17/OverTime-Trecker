@@ -1,7 +1,7 @@
 package com.example.OvertimeTracker.service.factory;
 
 import com.example.OvertimeTracker.dto.DepartmentResponseDto;
-import com.example.OvertimeTracker.dto.expenses.ExpensesResponseDto;
+import com.example.OvertimeTracker.dto.expenses.BonusResponseDto;
 import com.example.OvertimeTracker.dto.missingDate.MissingDayResponseDto;
 import com.example.OvertimeTracker.dto.overTime.OverTimeResponseDto;
 import com.example.OvertimeTracker.dto.user.UserCrmSalaryCounterResponseDto;
@@ -89,7 +89,7 @@ public class DtoFactory {
         dto.setTotalSum(salaryCounterresponseDto.getTotalSum());
         dto.setHourRate(round(salaryCounterresponseDto.getHourRate()));
 
-        dto.setExpensesTotalSum(salaryCounterresponseDto.getExpensesAmount());
+        dto.setBonusTotalSum(salaryCounterresponseDto.getBonusAmount());
         return dto;
     }
 
@@ -111,7 +111,7 @@ public class DtoFactory {
         dto.setOvertimeX1_5(x15);
         dto.setOvertimeX2(x2);
         dto.setTotalDeductions(missingSum);
-        dto.setExpensesAmount(expensesAmount);
+        dto.setBonusAmount(expensesAmount);
 
         BigDecimal totalSum = baseSalary.add(totalOvertime).subtract(missingSum).add(expensesAmount)
                 .setScale(0, RoundingMode.HALF_UP);
@@ -121,13 +121,12 @@ public class DtoFactory {
         return dto;
     }
 
-    public ExpensesResponseDto createExpenseResponseFro(Bonus bonus) {
-        ExpensesResponseDto dto = new ExpensesResponseDto();
+    public BonusResponseDto createExpenseResponseFro(Bonus bonus) {
+        BonusResponseDto dto = new BonusResponseDto();
         dto.setId(bonus.getId());
         dto.setDate(bonus.getDate());
         dto.setReason(bonus.getReason());
         dto.setSum(bonus.getSum());
-        dto.setFilePath(bonus.getFilePath());
         return dto;
     }
 

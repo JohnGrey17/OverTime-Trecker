@@ -57,7 +57,7 @@
         private Set<MissingWorkDays> missingWorkDays = new HashSet<>();
 
         @OneToMany(mappedBy = "user",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-        private Set<Bonus> expens = new HashSet<>();
+        private Set<Bonus> bonuses = new HashSet<>();
 
         @Override
         public Collection<? extends GrantedAuthority> getAuthorities() {
