@@ -1,6 +1,6 @@
 package com.example.OvertimeTracker.service.salaryCounter.expensesCounter;
 
-import com.example.OvertimeTracker.dto.expenses.BonusResponseDto;
+import com.example.OvertimeTracker.dto.bonus.BonusResponseDto;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;

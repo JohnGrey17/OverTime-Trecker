@@ -1,6 +1,6 @@
 package com.example.OvertimeTracker.factory;
 
-import com.example.OvertimeTracker.dto.expenses.BonusRequestDto;
+import com.example.OvertimeTracker.dto.bonus.BonusRequestDto;
 import com.example.OvertimeTracker.dto.missingDate.MissingWorkDateRequestDto;
 import com.example.OvertimeTracker.dto.overTime.OvertimeCreateRequestDto;
 import com.example.OvertimeTracker.exceptions.types.UserException;

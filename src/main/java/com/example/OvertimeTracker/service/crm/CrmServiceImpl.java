@@ -1,6 +1,6 @@
 package com.example.OvertimeTracker.service.crm;
 
-import com.example.OvertimeTracker.dto.expenses.BonusResponseDto;
+import com.example.OvertimeTracker.dto.bonus.BonusResponseDto;
 import com.example.OvertimeTracker.dto.missingDate.MissingDayResponseDto;
 import com.example.OvertimeTracker.dto.overTime.OverTimeResponseDto;
 import com.example.OvertimeTracker.dto.user.UserCrmSalaryCounterResponseDto;

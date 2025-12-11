@@ -1,7 +1,7 @@
 package com.example.OvertimeTracker.service.factory;
 
 import com.example.OvertimeTracker.dto.DepartmentResponseDto;
-import com.example.OvertimeTracker.dto.expenses.BonusResponseDto;
+import com.example.OvertimeTracker.dto.bonus.BonusResponseDto;
 import com.example.OvertimeTracker.dto.missingDate.MissingDayResponseDto;
 import com.example.OvertimeTracker.dto.overTime.OverTimeResponseDto;
 import com.example.OvertimeTracker.dto.user.UserCrmSalaryCounterResponseDto;
@@ -121,7 +121,7 @@ public class DtoFactory {
         return dto;
     }
 
-    public BonusResponseDto createExpenseResponseFro(Bonus bonus) {
+    public BonusResponseDto createBonusResponseFro(Bonus bonus) {
         BonusResponseDto dto = new BonusResponseDto();
         dto.setId(bonus.getId());
         dto.setDate(bonus.getDate());
