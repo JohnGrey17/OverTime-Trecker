@@ -7,6 +7,7 @@ import com.example.OvertimeTracker.exceptions.types.DepartmentException;
 import com.example.OvertimeTracker.model.department.Department;
 import com.example.OvertimeTracker.repositories.DepartmentRepository;
 import com.example.OvertimeTracker.service.factory.DtoFactory;
+import com.example.OvertimeTracker.service.factory.WorkEntityFactory;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -21,7 +22,7 @@ public class DepartmentServiceImpl implements DepartmentService {
 
     private final DtoFactory dtoFactory;
 
-    private final com.example.OvertimeTracker.factory.WorkEntityFactory workEntityFactory;
+    private final WorkEntityFactory workEntityFactory;
 
     @Override
     public List<DepartmentResponseDto> getAllDepartments() {

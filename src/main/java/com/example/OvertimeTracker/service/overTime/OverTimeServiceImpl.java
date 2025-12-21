@@ -8,6 +8,7 @@ import com.example.OvertimeTracker.exceptions.types.OverTimeValidationException;
 import com.example.OvertimeTracker.model.OverTimeWork;
 import com.example.OvertimeTracker.repositories.OvertimeRepository;
 import com.example.OvertimeTracker.service.factory.DtoFactory;
+import com.example.OvertimeTracker.service.factory.WorkEntityFactory;
 import com.example.OvertimeTracker.service.factory.validator.WorkTimeRulesService;
 import com.example.OvertimeTracker.service.workDayConflict.WorkDayConflictService;
 import lombok.RequiredArgsConstructor;
@@ -24,7 +25,7 @@ public class OverTimeServiceImpl implements OvertimeTrackerService {
 
     private final OvertimeRepository overtimeRepository;
     private final DtoFactory dtoFactory;
-    private final com.example.OvertimeTracker.factory.WorkEntityFactory workEntityFactory;
+    private final WorkEntityFactory workEntityFactory;
     private final WorkDayConflictService workDayConflictService;
     private final WorkTimeRulesService workTimeRulesService;
 

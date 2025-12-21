@@ -33,7 +33,7 @@ public class WorkTimeRulesService {
         BigDecimal maxHours;
 
         if (day == DayOfWeek.SATURDAY || day == DayOfWeek.SUNDAY) {
-            maxHours = BigDecimal.valueOf(8);
+            maxHours = BigDecimal.valueOf(15);
         } else {
             maxHours = BigDecimal.valueOf(5);
         }

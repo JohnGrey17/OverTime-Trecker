@@ -15,7 +15,8 @@ import java.util.List;
 @RequestMapping("/department")
 @RequiredArgsConstructor
 @Tag(name = "Department Controller", description = "That controller give possiblility to do act with departments")
-public class DepartmentController {
+public class
+DepartmentController {
 
     private final DepartmentService departmentService;
 

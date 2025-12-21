@@ -1,6 +1,6 @@
 package com.example.OvertimeTracker.repositories;
 
-import com.example.OvertimeTracker.model.Expense;
+import com.example.OvertimeTracker.model.Bonus;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -8,10 +8,10 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Repository
-public interface ExpensesRepository extends JpaRepository <Expense, Long> {
+public interface BonusRepository extends JpaRepository <Bonus, Long> {
 
-    List<Expense> findAllByUser_IdAndDateBetween
+    List<Bonus> findAllByUser_IdAndDateBetween
             (
-            Long userId, LocalDate startDate, LocalDate endDate);
+                    Long userId, LocalDate startDate, LocalDate endDate);
 
 }

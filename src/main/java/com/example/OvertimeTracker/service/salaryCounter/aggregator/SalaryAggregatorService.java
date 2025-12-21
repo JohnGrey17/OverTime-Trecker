@@ -1,6 +1,6 @@
 package com.example.OvertimeTracker.service.salaryCounter.aggregator;
 
-import com.example.OvertimeTracker.dto.expenses.ExpensesResponseDto;
+import com.example.OvertimeTracker.dto.bonus.BonusResponseDto;
 import com.example.OvertimeTracker.dto.missingDate.MissingDayResponseDto;
 import com.example.OvertimeTracker.dto.overTime.OverTimeResponseDto;
 import com.example.OvertimeTracker.dto.user.userResponse.UserCrmSalaryCounterResponseDto;
@@ -13,6 +13,6 @@ public interface SalaryAggregatorService {
     UserCrmSalaryCounterResponseDto getCrmResponseDto(BigDecimal baseSalary,
                                                       List<OverTimeResponseDto> overTimeResponseDtoList,
                                                       List<MissingDayResponseDto> missingDayResponseDtoList,
-                                                      List<ExpensesResponseDto> expensesResponseDtoList);
+                                                      List<BonusResponseDto> expensesResponseDtoList);
 
 }

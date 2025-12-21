@@ -16,5 +16,5 @@ public class UserCrmSalaryCounterResponseDto {
     private BigDecimal totalDeductions;
     private BigDecimal netSalary;
 
-    private BigDecimal expensesAmount;
+    private BigDecimal bonusAmount;
 }

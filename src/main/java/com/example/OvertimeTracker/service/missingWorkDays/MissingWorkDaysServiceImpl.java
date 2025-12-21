@@ -10,6 +10,7 @@
     import com.example.OvertimeTracker.model.OverTimeWork;
     import com.example.OvertimeTracker.repositories.MissingWorkDaysRepository;
     import com.example.OvertimeTracker.service.factory.DtoFactory;
+    import com.example.OvertimeTracker.service.factory.WorkEntityFactory;
     import com.example.OvertimeTracker.service.factory.validator.WorkTimeRulesService;
     import com.example.OvertimeTracker.service.workDayConflict.WorkDayConflictService;
     import lombok.RequiredArgsConstructor;
@@ -26,7 +27,7 @@
 
         private final MissingWorkDaysRepository missingWorkDaysRepository;
 
-        private final com.example.OvertimeTracker.factory.WorkEntityFactory workEntityFactory;
+        private final WorkEntityFactory workEntityFactory;
 
         private final DtoFactory dtoFactory;
         private final WorkDayConflictService workDayConflictService;

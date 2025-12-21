@@ -22,6 +22,6 @@ databaseChangeLog:
   - include:
       file: db/changes/insert/insert-super-user-to-user-table.yaml
   - include:
-      file: db/changes/creator/create-expense-table.yaml
+      file: db/changes/creator/create-bonus-table.yaml
   - include:
-      file: db/changes/relations/add-user-fk-to-expense.yaml
+      file: db/changes/relations/add-user-fk-to-bonus.yaml

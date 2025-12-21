@@ -1,10 +1,10 @@
 databaseChangeLog:
   - changeSet:
-      id: create-expense-table
+      id: create-bonus-table
       author: serj
       changes:
         - createTable:
-            tableName: expenses
+            tableName: bonuses
             columns:
               - column:
                   name: id
@@ -22,8 +22,5 @@ databaseChangeLog:
               - column:
                   name: sum
                   type: DECIMAL
-              - column:
-                  name: file_path
-                  type: VARCHAR(255)
 
 
