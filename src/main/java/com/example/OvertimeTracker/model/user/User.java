@@ -1,9 +1,9 @@
     package com.example.OvertimeTracker.model.user;
 
-    import com.example.OvertimeTracker.model.Bonus;
-    import com.example.OvertimeTracker.model.MissingWorkDays;
-    import com.example.OvertimeTracker.model.OverTimeWork;
-    import com.example.OvertimeTracker.model.SalaryTransaction;
+    import com.example.OvertimeTracker.model.bonus.Bonus;
+    import com.example.OvertimeTracker.model.missingHours.MissingWorkDays;
+    import com.example.OvertimeTracker.model.overTimeWork.OverTimeWork;
+    import com.example.OvertimeTracker.model.salaryTransaction.SalaryTransaction;
     import com.example.OvertimeTracker.model.department.Department;
     import com.example.OvertimeTracker.model.roles.Role;
     import jakarta.persistence.*;
@@ -12,6 +12,7 @@
     import org.springframework.security.core.userdetails.UserDetails;
 
     import java.math.BigDecimal;
+    import java.time.LocalDateTime;
     import java.util.Collection;
     import java.util.HashSet;
     import java.util.Set;
@@ -46,6 +47,15 @@
 
         @Column(nullable = false)
         private String password;
+
+        @Column(name = "reset_code_hash")
+        private String resetCodeHash;
+
+        @Column(name = "reset_code_expires_at")
+        private LocalDateTime resetCodeExpiresAt;
+
+        @Column(name = "reset_code_used_at")
+        private LocalDateTime resetCodeUsedAt;
 
         @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
         private Set<OverTimeWork> overTimeWorks = new HashSet<>();

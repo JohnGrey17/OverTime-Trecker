@@ -3,11 +3,9 @@
     import com.example.OvertimeTracker.dto.missingDate.MissingDayResponseDto;
     import com.example.OvertimeTracker.dto.missingDate.MissingDayUpdateRequestDto;
     import com.example.OvertimeTracker.dto.missingDate.MissingWorkDateRequestDto;
-    import com.example.OvertimeTracker.dto.overTime.OverTimeUpdateRequestDto;
     import com.example.OvertimeTracker.exceptions.types.MissingDayException;
     import com.example.OvertimeTracker.exceptions.types.MissingWorkDayValidationException;
-    import com.example.OvertimeTracker.model.MissingWorkDays;
-    import com.example.OvertimeTracker.model.OverTimeWork;
+    import com.example.OvertimeTracker.model.missingHours.MissingWorkDays;
     import com.example.OvertimeTracker.repositories.MissingWorkDaysRepository;
     import com.example.OvertimeTracker.service.factory.DtoFactory;
     import com.example.OvertimeTracker.service.factory.WorkEntityFactory;
@@ -19,7 +17,6 @@
 
     import java.time.LocalDate;
     import java.util.List;
-    import java.util.Optional;
 
     @Service
     @RequiredArgsConstructor

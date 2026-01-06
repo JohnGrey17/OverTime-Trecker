@@ -20,6 +20,9 @@ public class Role implements GrantedAuthority {
     @Column(unique = true, nullable = false, columnDefinition = "varchar(255)")
     private RoleName name;
 
+    @Column(name = "display_name")
+    private String displayName;
+
     @Override
     public String getAuthority() {
         return "ROLE_" + name.name();

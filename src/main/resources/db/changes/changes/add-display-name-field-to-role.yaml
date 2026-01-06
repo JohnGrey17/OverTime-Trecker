@@ -1,0 +1,13 @@
+databaseChangeLog:
+  - changeSet:
+      id: add-display-name-to-roles
+      author: serj
+      changes:
+        - addColumn:
+            tableName: roles
+            columns:
+              - column:
+                  name: display_name
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: true

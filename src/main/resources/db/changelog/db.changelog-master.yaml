@@ -25,3 +25,9 @@ databaseChangeLog:
       file: db/changes/creator/create-bonus-table.yaml
   - include:
       file: db/changes/relations/add-user-fk-to-bonus.yaml
+  - include:
+      file: db/changes/changes/add-display-name-field-to-role.yaml
+  - include:
+      file: db/changes/insert/insert-display-name-fore-roles.yaml
+  - include:
+      file: db/changes/changes/add-temp-password-field-to-user.yaml

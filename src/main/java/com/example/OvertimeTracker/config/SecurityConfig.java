@@ -52,7 +52,9 @@ public class SecurityConfig {
                                         "/error",
                                         "/swagger-ui/**",
                                         "/department/getAll",
-                                        "/v3/api-docs/**")
+                                        "/v3/api-docs/**"
+                                        ,"swagger-ui.html",
+                                        "/forgot/**")
                                 .permitAll()
                                 .anyRequest()
                                 .authenticated()

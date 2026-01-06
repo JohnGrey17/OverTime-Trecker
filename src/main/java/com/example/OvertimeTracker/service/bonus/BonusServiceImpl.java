@@ -2,7 +2,7 @@ package com.example.OvertimeTracker.service.bonus;
 
 import com.example.OvertimeTracker.dto.bonus.BonusResponseDto;
 import com.example.OvertimeTracker.dto.bonus.BonusRequestDto;
-import com.example.OvertimeTracker.model.Bonus;
+import com.example.OvertimeTracker.model.bonus.Bonus;
 import com.example.OvertimeTracker.repositories.BonusRepository;
 import com.example.OvertimeTracker.service.factory.DtoFactory;
 

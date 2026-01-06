@@ -2,10 +2,13 @@ package com.example.OvertimeTracker.controller.admin.user;
 
 import com.example.OvertimeTracker.dto.salary.UserUpdateSalaryRequestDto;
 import com.example.OvertimeTracker.dto.user.userResponse.UserResponseDto;
+import com.example.OvertimeTracker.model.user.User;
 import com.example.OvertimeTracker.service.user.UserService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -35,5 +38,12 @@ public class UserControllerAdmin {
     public String updateUserSalary(@RequestBody UserUpdateSalaryRequestDto dto) {
             return userService.upgradeUserSalary(dto.getUserId(), dto);
     }
-    //toDO newd to add controller that change user Roles
+
+    @DeleteMapping("/del/{userId}")
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<String> deleteUser(@PathVariable Long userId, @AuthenticationPrincipal User userOwnId) {
+        userService.deleteUser(userId, userOwnId.getId());
+        return ResponseEntity.ok("Користувач видалений");
+    }
+
 }

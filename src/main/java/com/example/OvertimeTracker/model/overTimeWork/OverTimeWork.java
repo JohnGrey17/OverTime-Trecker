@@ -1,8 +1,7 @@
-    package com.example.OvertimeTracker.model;
+    package com.example.OvertimeTracker.model.overTimeWork;
 
     import com.example.OvertimeTracker.model.user.User;
     import jakarta.persistence.*;
-    import lombok.Data;
     import lombok.Getter;
     import lombok.Setter;
     import lombok.ToString;

@@ -49,7 +49,7 @@ public class UserAuthenticationServiceImpl implements UserAuthenticationService 
     // 🛠️ Приватний метод мапінгу з DTO в Entity
     private User convertToUser(UserRegistrationRequestDto dto) {
         User user = new User();
-        user.setEmail(dto.getEmail());
+        user.setEmail(dto.getEmail().toLowerCase().trim());
         user.setPassword(passwordEncoder.encode(dto.getPassword()));
         user.setFirstName(dto.getFirstName());
         user.setLastName(dto.getLastName());

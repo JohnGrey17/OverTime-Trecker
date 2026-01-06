@@ -1,4 +1,4 @@
-package com.example.OvertimeTracker.model;
+package com.example.OvertimeTracker.model.missingHours;
 
 
 import com.example.OvertimeTracker.model.user.User;

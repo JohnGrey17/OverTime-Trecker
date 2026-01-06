@@ -49,8 +49,6 @@ public class UserController {
     public UserResponseDto getOwnInfo(
             @AuthenticationPrincipal User user) {
        return userService.getOwnInfo(user.getId());
-
-
     }
 
 }

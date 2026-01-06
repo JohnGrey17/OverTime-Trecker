@@ -1,6 +1,6 @@
 package com.example.OvertimeTracker.repositories;
 
-import com.example.OvertimeTracker.model.OverTimeWork;
+import com.example.OvertimeTracker.model.overTimeWork.OverTimeWork;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

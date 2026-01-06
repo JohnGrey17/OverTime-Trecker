@@ -26,9 +26,7 @@ public class AuthenticationService {
 
     public UserLoginResponseDto authenticate(UserLoginRequestDto requestDto) {
         Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(requestDto.email(), requestDto.password()));
-
-        System.out.println("👤 Principal class: " + authentication.getPrincipal().getClass().getName());
+                new UsernamePasswordAuthenticationToken(requestDto.email().toLowerCase().trim(), requestDto.password()));
 
         User user = (User) authentication.getPrincipal();
         Set<String> roles = user.getRoles().stream()

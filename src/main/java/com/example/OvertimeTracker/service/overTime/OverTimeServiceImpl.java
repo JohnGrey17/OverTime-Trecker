@@ -5,7 +5,7 @@ import com.example.OvertimeTracker.dto.overTime.OverTimeUpdateRequestDto;
 import com.example.OvertimeTracker.dto.overTime.OvertimeCreateRequestDto;
 import com.example.OvertimeTracker.exceptions.types.OverTimeException;
 import com.example.OvertimeTracker.exceptions.types.OverTimeValidationException;
-import com.example.OvertimeTracker.model.OverTimeWork;
+import com.example.OvertimeTracker.model.overTimeWork.OverTimeWork;
 import com.example.OvertimeTracker.repositories.OvertimeRepository;
 import com.example.OvertimeTracker.service.factory.DtoFactory;
 import com.example.OvertimeTracker.service.factory.WorkEntityFactory;

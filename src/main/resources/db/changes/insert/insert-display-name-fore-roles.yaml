@@ -1,0 +1,33 @@
+databaseChangeLog:
+  - changeSet:
+      id: fill-display-name-for-roles
+      author: serj
+      changes:
+        - update:
+            tableName: roles
+            columns:
+              - column:
+                  name: display_name
+                  value: "Користувач"
+            where: "name = 'USER'"
+        - update:
+            tableName: roles
+            columns:
+              - column:
+                  name: display_name
+                  value: "Адміністратор"
+            where: "name = 'ADMIN'"
+        - update:
+            tableName: roles
+            columns:
+              - column:
+                  name: display_name
+                  value: "Фінансовий менеджер"
+            where: "name = 'FINANCIAL_MANAGER'"
+        - update:
+            tableName: roles
+            columns:
+              - column:
+                  name: display_name
+                  value: "Тім лід"
+            where: "name = 'TEAM_LEAD'"

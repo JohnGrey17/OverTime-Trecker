@@ -22,4 +22,6 @@ public interface UserService {
 
     UserResponseDto getOwnInfo(Long id);
 
+    void deleteUser(Long userId, Long userOwnId);
+
 }

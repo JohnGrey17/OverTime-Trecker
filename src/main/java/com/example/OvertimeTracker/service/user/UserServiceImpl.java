@@ -99,6 +99,16 @@ public class UserServiceImpl implements UserService {
         return userResponseDto;
     }
 
+    @Override
+    public void deleteUser(Long userId, Long userOwnId) {
+
+        User user = userRepository.findById(userId).orElseThrow(() -> new UserException("User not found"));
+        if (userId.equals(userOwnId)) {
+            throw new UserException("You can`t delete your self from that interface");
+        }
+        userRepository.deleteById(user.getId());
+    }
+
     private void applyUserCardUpdates(User user, UserUpdateRequestDto dto) {
 
         if (dto.getFirstName() != null && !dto.getFirstName().isBlank()) {

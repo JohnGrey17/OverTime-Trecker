@@ -4,13 +4,15 @@ import com.example.OvertimeTracker.dto.bonus.BonusResponseDto;
 import com.example.OvertimeTracker.dto.department.DepartmentResponseDto;
 import com.example.OvertimeTracker.dto.missingDate.MissingDayResponseDto;
 import com.example.OvertimeTracker.dto.overTime.OverTimeResponseDto;
+import com.example.OvertimeTracker.dto.roles.RoleResponseDto;
 import com.example.OvertimeTracker.dto.user.userResponse.UserCrmSalaryCounterResponseDto;
 import com.example.OvertimeTracker.dto.user.userResponse.UserCrmWithAllCount;
 import com.example.OvertimeTracker.dto.user.userResponse.UserResponseDto;
-import com.example.OvertimeTracker.model.Bonus;
-import com.example.OvertimeTracker.model.MissingWorkDays;
-import com.example.OvertimeTracker.model.OverTimeWork;
+import com.example.OvertimeTracker.model.bonus.Bonus;
+import com.example.OvertimeTracker.model.missingHours.MissingWorkDays;
+import com.example.OvertimeTracker.model.overTimeWork.OverTimeWork;
 import com.example.OvertimeTracker.model.department.Department;
+import com.example.OvertimeTracker.model.roles.Role;
 import com.example.OvertimeTracker.model.user.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -127,6 +129,14 @@ public class DtoFactory {
         dto.setDate(bonus.getDate());
         dto.setReason(bonus.getReason());
         dto.setSum(bonus.getSum());
+        return dto;
+    }
+
+    public RoleResponseDto createRoleResponseDto(Role role) {
+        RoleResponseDto dto = new RoleResponseDto();
+
+        dto.setRoleName(String.valueOf(role.getName()));
+        dto.setDisplayName(role.getDisplayName());
         return dto;
     }
 
