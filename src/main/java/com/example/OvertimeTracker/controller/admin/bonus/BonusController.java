@@ -1,4 +1,4 @@
-package com.example.OvertimeTracker.controller.bonus;
+package com.example.OvertimeTracker.controller.admin.bonus;
 
 
 import com.example.OvertimeTracker.dto.bonus.BonusRequestDto;

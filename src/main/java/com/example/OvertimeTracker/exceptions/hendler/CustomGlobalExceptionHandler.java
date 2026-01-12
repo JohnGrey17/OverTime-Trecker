@@ -47,7 +47,8 @@ public class CustomGlobalExceptionHandler extends ResponseEntityExceptionHandler
             OverTimeValidationException.class,
             MissingWorkDayValidationException.class,
             WorkDayConflictException.class,
-            MissingDayException.class
+            MissingDayException.class,
+            DomainException.class
 
 
     })

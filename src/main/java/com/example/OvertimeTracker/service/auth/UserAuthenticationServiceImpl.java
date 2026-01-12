@@ -3,6 +3,7 @@ package com.example.OvertimeTracker.service.auth;
 import com.example.OvertimeTracker.dto.user.userResponse.MessageResponseDto;
 import com.example.OvertimeTracker.dto.user.registration.UserRegistrationRequestDto;
 import com.example.OvertimeTracker.exceptions.types.DepartmentException;
+import com.example.OvertimeTracker.exceptions.types.DomainException;
 import com.example.OvertimeTracker.exceptions.types.UserException;
 import com.example.OvertimeTracker.model.department.Department;
 import com.example.OvertimeTracker.model.roles.Role;
@@ -23,6 +24,10 @@ import java.util.Set;
 @RequiredArgsConstructor
 public class UserAuthenticationServiceImpl implements UserAuthenticationService {
 
+    private final static String ACCEPTABLE_DOMAIN_NAME = "vyriy.com";
+    private final static String SYMBOL_FOR_SUBSTRING = "@";
+
+
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
     private final PasswordEncoder passwordEncoder;
@@ -39,7 +44,6 @@ public class UserAuthenticationServiceImpl implements UserAuthenticationService 
                 .orElseThrow(() -> new RuntimeException("❌ Role USER not found"));
 
         user.setRoles(Set.of(role));
-
 
         userRepository.save(user);
 
@@ -75,6 +79,8 @@ public class UserAuthenticationServiceImpl implements UserAuthenticationService 
             throw new UserException("Please insert your user email");
         }
 
+        emailDomainNameChecker(registrationRequestDto.getEmail());
+
         if (registrationRequestDto.getPassword() == null || registrationRequestDto.getPassword().isBlank()
                 || registrationRequestDto.getRepeatPassword() == null || registrationRequestDto.getRepeatPassword().isBlank()) {
             throw new UserException("Please insert password");
@@ -82,6 +88,23 @@ public class UserAuthenticationServiceImpl implements UserAuthenticationService 
 
         if (userRepository.findByEmail(registrationRequestDto.getEmail()).isPresent()) {
             throw new UserException("User with email " + registrationRequestDto.getEmail() + " already exists");
+        }
+    }
+
+    /*
+    Check Email domain address
+
+     */
+    private void emailDomainNameChecker(String email) {
+        if (email == null || !email.contains(SYMBOL_FOR_SUBSTRING)) {
+            throw new DomainException("Invalid email format");
+        }
+
+        String domain = email.substring(email.lastIndexOf(SYMBOL_FOR_SUBSTRING) + 1)
+                .toLowerCase();
+
+        if (!domain.equals(ACCEPTABLE_DOMAIN_NAME)) {
+            throw new DomainException("Please use work email");
         }
     }
 }

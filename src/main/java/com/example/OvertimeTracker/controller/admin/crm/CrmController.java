@@ -1,4 +1,4 @@
-package com.example.OvertimeTracker.controller.crm;
+package com.example.OvertimeTracker.controller.admin.crm;
 
 import com.example.OvertimeTracker.dto.user.userResponse.UserCrmWithAllCount;
 import com.example.OvertimeTracker.service.crm.CrmService;
