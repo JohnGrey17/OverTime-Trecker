@@ -4,6 +4,8 @@ import com.example.OvertimeTracker.dto.bonus.BonusResponseDto;
 import com.example.OvertimeTracker.dto.missingDate.MissingDayResponseDto;
 import com.example.OvertimeTracker.dto.overTime.OverTimeResponseDto;
 import com.example.OvertimeTracker.dto.user.userResponse.UserCrmSalaryCounterResponseDto;
+import com.example.OvertimeTracker.model.user.userCondition.UserCondition;
+import com.example.OvertimeTracker.repositories.UserConditionRepository;
 import com.example.OvertimeTracker.service.factory.DtoFactory;
 import com.example.OvertimeTracker.service.salaryCounter.bonusCounter.BonusCounterService;
 import com.example.OvertimeTracker.service.salaryCounter.missingdaysCounter.MissingHoursSalaryCounter;
@@ -26,18 +28,44 @@ public class SalaryAggregatorServiceImpl implements SalaryAggregatorService {
     private final DtoFactory dtoFactory;
     private final BonusCounterService bonusCounterService;
 
-    @Override
-    public UserCrmSalaryCounterResponseDto getCrmResponseDto(BigDecimal baseSalary,
-                                                             List<OverTimeResponseDto> overTimeResponseDtoList,
-                                                             List<MissingDayResponseDto> missingDayResponseDtoList,
-                                                             List<BonusResponseDto> bonusResponseDtoList) {
+    // ✅ додали
+    private final UserConditionRepository userConditionRepository;
 
-        BigDecimal perHourValue = salaryPerHourService.getPerHourValue(baseSalary);
-        Map<String, BigDecimal> overTimeSum = overTimeHoursSalaryCounter.getOverTimeSum(perHourValue, overTimeResponseDtoList);
-        BigDecimal missingSum = missingHoursSalaryCounter.getMissingSum(perHourValue, missingDayResponseDtoList);
+    @Override
+    public UserCrmSalaryCounterResponseDto getCrmResponseDto(
+            Long userId,
+            BigDecimal baseSalary,
+            List<OverTimeResponseDto> overTimeResponseDtoList,
+            List<MissingDayResponseDto> missingDayResponseDtoList,
+            List<BonusResponseDto> bonusResponseDtoList,
+            int year,
+            int month
+    ) {
+        // базова погодинна (для missing і т.д.)
+        BigDecimal baseHourRate = salaryPerHourService.getPerHourValue(baseSalary, year, month);
+
+        // ✅ ставка для ОВЕРТАЙМУ: або з умови, або як було
+        BigDecimal overtimeHourRate = resolveOvertimeHourRate(userId, baseHourRate);
+
+        Map<String, BigDecimal> overTimeSum =
+                overTimeHoursSalaryCounter.getOverTimeSum(overtimeHourRate, overTimeResponseDtoList);
+
+        // ❗ missing рахуємо по базовій ставці (як ти й хотів: умова тільки для овертаймів)
+        BigDecimal missingSum =
+                missingHoursSalaryCounter.getMissingSum(baseHourRate, missingDayResponseDtoList);
+
         BigDecimal bonusAmount = bonusCounterService.getBonusesAmount(bonusResponseDtoList);
 
-        return dtoFactory.createUserCrmResponseDto(overTimeSum, missingSum, baseSalary,bonusAmount);
+        return dtoFactory.createUserCrmResponseDto(overTimeSum, missingSum, baseSalary, bonusAmount);
     }
 
+    private BigDecimal resolveOvertimeHourRate(Long userId, BigDecimal fallbackBaseHourRate) {
+        if (userId == null) return fallbackBaseHourRate;
+
+        return userConditionRepository
+                .findFirstByUserIdAndActiveTrueOrderByPriorityDescIdDesc(userId)
+                .map(UserCondition::getAmount)
+                .filter(a -> a != null && a.signum() > 0)
+                .orElse(fallbackBaseHourRate);
+    }
 }

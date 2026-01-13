@@ -10,9 +10,9 @@ import java.util.List;
 
 public interface SalaryAggregatorService {
 
-    UserCrmSalaryCounterResponseDto getCrmResponseDto(BigDecimal baseSalary,
+    UserCrmSalaryCounterResponseDto getCrmResponseDto(  Long userId,BigDecimal baseSalary,
                                                       List<OverTimeResponseDto> overTimeResponseDtoList,
                                                       List<MissingDayResponseDto> missingDayResponseDtoList,
-                                                      List<BonusResponseDto> expensesResponseDtoList);
+                                                      List<BonusResponseDto> expensesResponseDtoList, int year, int month);
 
 }

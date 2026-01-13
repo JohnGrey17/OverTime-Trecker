@@ -31,3 +31,5 @@ databaseChangeLog:
       file: db/changes/insert/insert-display-name-fore-roles.yaml
   - include:
       file: db/changes/changes/add-temp-password-field-to-user.yaml
+  - include:
+      file: db/changes/creator/create-user-condition-table.yaml

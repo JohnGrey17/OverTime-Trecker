@@ -45,10 +45,10 @@ public class CrmServiceImpl implements CrmService {
                             = expensesService.getAllByUserIdAndMonth(user.getId(), year, month);
 
                     UserCrmSalaryCounterResponseDto salaryCounterResponseDto
-                            = salaryAggregatorService.getCrmResponseDto(user.getSalary(),
+                            = salaryAggregatorService.getCrmResponseDto(user.getId(), user.getSalary(),
                             overtimes,
                             missingDays,
-                            expenses);
+                            expenses, year, month);
 
                     BigDecimal totalMissingHours = missingDays.stream()
                             .map(MissingDayResponseDto::getMissingHours)

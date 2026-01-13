@@ -6,6 +6,7 @@
     import com.example.OvertimeTracker.model.salaryTransaction.SalaryTransaction;
     import com.example.OvertimeTracker.model.department.Department;
     import com.example.OvertimeTracker.model.roles.Role;
+    import com.example.OvertimeTracker.model.user.userCondition.UserCondition;
     import jakarta.persistence.*;
     import lombok.Data;
     import org.springframework.security.core.GrantedAuthority;
@@ -13,9 +14,7 @@
 
     import java.math.BigDecimal;
     import java.time.LocalDateTime;
-    import java.util.Collection;
-    import java.util.HashSet;
-    import java.util.Set;
+    import java.util.*;
 
     @Entity
     @Table(name = "users")
@@ -29,6 +28,14 @@
         private String lastName;
         private BigDecimal salary;
         private String phoneNumber;
+
+        @OneToMany(
+                mappedBy = "user",
+                cascade = CascadeType.ALL,
+                orphanRemoval = true,
+                fetch = FetchType.LAZY
+        )
+        private List<UserCondition> conditions = new ArrayList<>();
 
         @ManyToOne
         @JoinColumn(name = "department_id", referencedColumnName = "id")
