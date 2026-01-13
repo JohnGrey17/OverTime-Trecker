@@ -7,5 +7,5 @@ import java.util.List;
 import java.util.Map;
 
 public interface OverTimeHoursSalaryCounter {
-    Map<String,BigDecimal> getOverTimeSum(BigDecimal hourRate, List<OverTimeResponseDto> overtimes);
+    Map<String, BigDecimal> getOverTimeSum(Long userId, BigDecimal hourRate, List<OverTimeResponseDto> overtimes);
 }

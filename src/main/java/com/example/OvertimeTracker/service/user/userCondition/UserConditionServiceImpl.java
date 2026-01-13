@@ -97,7 +97,7 @@ public class UserConditionServiceImpl implements UserConditionService {
     private void validateCreate(CreateUserConditionRequestDto request) {
         if (request == null) throw new IllegalArgumentException("Request is null");
         if (request.getType() == null) throw new IllegalArgumentException("type is required");
-        if (request.getType() != UserConditionType.FIXED_PER_HOUR) {
+        if (request.getType() != UserConditionType.FIXED_PER_OVERTIME) {
             throw new IllegalArgumentException("Only FIXED_PER_HOUR is supported");
         }
         validateAmount(request.getAmount());
@@ -105,7 +105,7 @@ public class UserConditionServiceImpl implements UserConditionService {
 
     private void validateByType(UserCondition c) {
         if (c.getType() == null) throw new IllegalArgumentException("type is required");
-        if (c.getType() != UserConditionType.FIXED_PER_HOUR) {
+        if (c.getType() != UserConditionType.FIXED_PER_OVERTIME) {
             throw new IllegalArgumentException("Only FIXED_PER_HOUR is supported");
         }
         validateAmount(c.getAmount());
