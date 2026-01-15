@@ -123,7 +123,7 @@ public class DtoFactory {
         return dto;
     }
 
-    public BonusResponseDto createExpenseResponseFro(Bonus bonus) {
+    public BonusResponseDto createBonusResponseDto(Bonus bonus) {
         BonusResponseDto dto = new BonusResponseDto();
         dto.setId(bonus.getId());
         dto.setDate(bonus.getDate());

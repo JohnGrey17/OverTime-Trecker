@@ -33,3 +33,5 @@ databaseChangeLog:
       file: db/changes/changes/add-temp-password-field-to-user.yaml
   - include:
       file: db/changes/creator/create-user-condition-table.yaml
+  - include:
+      file: db/changes/insert/delete-user-serhii-hainovskyi.yaml

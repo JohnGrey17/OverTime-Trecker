@@ -1,0 +1,15 @@
+databaseChangeLog:
+  - changeSet:
+      id: delete-user-serhii-hainovskyi
+      author: serj
+      changes:
+
+        # 1) спочатку прибираємо зв'язки user<->roles
+        - delete:
+            tableName: users_roles
+            where: "user_id = (SELECT id FROM users WHERE email = 'Serhii.Hainovskyi@vyriy.com')"
+
+        # 2) потім видаляємо самого юзера
+        - delete:
+            tableName: users
+            where: "email = 'Serhii.Hainovskyi@vyriy.com'"

@@ -24,27 +24,45 @@ public class BonusController {
     private final BonusService bonusService;
 
     @PostMapping("/add")
-    @Operation(summary = "Add a Bonus",
-            description = "Creates a record for a Bonus with a reason and sum")
-    @PreAuthorize("hasRole('USER')")
+    @PreAuthorize("hasRole('ADMIN')")
     @ResponseStatus(HttpStatus.CREATED)
     public String createBonus(
-            @RequestBody BonusRequestDto requestDto, @AuthenticationPrincipal User user) {
-        return bonusService.createBonus(user.getId(), requestDto);
-
-
-
+            @RequestParam Long userId,
+            @RequestBody BonusRequestDto requestDto
+    ) {
+        return bonusService.createBonus(userId, requestDto);
     }
+
 
     @GetMapping("/getBy/month")
-    @PreAuthorize("hasRole('USER')")
-    @Operation(summary = "Get all Bonus",
-            description = "Get all Bonus")
+    @PreAuthorize("hasRole('ADMIN')")
     public List<BonusResponseDto> getAllByUserIdAndPeriod(
-            @RequestParam int year, int month,
-            @AuthenticationPrincipal User user) {
-        return bonusService.getAllByUserIdAndMonth(user.getId(),year,month);
+            @RequestParam Long userId,
+            @RequestParam int year,
+            @RequestParam int month
+    ) {
+        return bonusService.getAllByUserIdAndMonth(userId, year, month);
     }
 
-    //todo delete bonus , updateBonus
+    @DeleteMapping("/delete")
+    @PreAuthorize("hasRole('ADMIN')")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteBonus(
+            @RequestParam Long userId,
+            @RequestParam Long bonusId
+    ) {
+        bonusService.deleteBonus(userId, bonusId);
+    }
+
+    @PostMapping("/update")
+    @PreAuthorize("hasRole('ADMIN')")
+    public void updateBonus(
+            @RequestParam Long userId,
+            @RequestParam Long bonusId,
+            @RequestBody BonusRequestDto requestDto
+    ) {
+        bonusService.updateBonus(userId, bonusId, requestDto);
+    }
+
+
 }

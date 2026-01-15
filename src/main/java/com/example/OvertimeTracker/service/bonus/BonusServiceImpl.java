@@ -37,7 +37,36 @@ public class BonusServiceImpl implements BonusService {
 
         return bonusRepository.findAllByUser_IdAndDateBetween(userId, start, end)
                 .stream()
-                .map(dtoFactory::createExpenseResponseFro)
+                .map(dtoFactory::createBonusResponseDto)
                 .toList();
+    }
+
+    @Override
+    public void deleteBonus(Long userId, Long bonusId) {
+        Bonus bonus = bonusRepository.findById(bonusId)
+                .orElseThrow(() -> new RuntimeException("Bonus not found"));
+
+        if (!bonus.getUser().getId().equals(userId)) {
+            throw new RuntimeException("Bonus does not belong to user");
+        }
+
+        bonusRepository.delete(bonus);
+    }
+
+    @Override
+    public void updateBonus(Long userId, Long bonusId, BonusRequestDto dto) {
+        Bonus bonus = bonusRepository.findById(bonusId)
+                .orElseThrow(() -> new RuntimeException("Bonus not found"));
+
+        if (!bonus.getUser().getId().equals(userId)) {
+            throw new RuntimeException("Bonus does not belong to user");
+        }
+
+        // онови поля (підлаштуй під свою модель)
+        bonus.setDate(dto.getDate());
+        bonus.setReason(dto.getReason());
+        bonus.setSum(dto.getSum());
+
+        bonusRepository.save(bonus);
     }
 }
