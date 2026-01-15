@@ -2,6 +2,7 @@ package com.example.OvertimeTracker.service.salaryCounter.overtimeCounter;
 
 import com.example.OvertimeTracker.dto.overTime.OverTimeResponseDto;
 import com.example.OvertimeTracker.model.user.userCondition.UserCondition;
+import com.example.OvertimeTracker.model.user.userCondition.UserConditionType;
 import com.example.OvertimeTracker.repositories.UserConditionRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
