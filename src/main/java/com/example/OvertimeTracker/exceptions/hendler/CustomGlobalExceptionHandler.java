@@ -48,9 +48,8 @@ public class CustomGlobalExceptionHandler extends ResponseEntityExceptionHandler
             MissingWorkDayValidationException.class,
             WorkDayConflictException.class,
             MissingDayException.class,
-            DomainException.class
-
-
+            DomainException.class,
+            SubDepartmentException.class
     })
     protected ResponseEntity<Object> handleBadRequestExceptions(RuntimeException ex) {
         HttpStatus status = HttpStatus.BAD_REQUEST;

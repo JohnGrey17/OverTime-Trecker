@@ -56,7 +56,7 @@ public class WorkEntityFactory {
 
     }
 
-    public Department createDepartment(NewDepartmentRequestDto requestDto) {
+    public Department createNewDepartment(NewDepartmentRequestDto requestDto) {
         Department department = new Department();
 
         department.setName(requestDto.getDepartmentName());

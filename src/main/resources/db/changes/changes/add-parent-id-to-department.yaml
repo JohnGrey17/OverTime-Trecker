@@ -1,0 +1,34 @@
+databaseChangeLog:
+  - changeSet:
+      id: add-parent-id-to-departments
+      author: serj
+      changes:
+        - addColumn:
+            tableName: departments
+            columns:
+              - column:
+                  name: parent_id
+                  type: BIGINT
+                  constraints:
+                    nullable: true
+  - changeSet:
+      id: add-fk-departments-parent
+      author: serj
+      changes:
+        - addForeignKeyConstraint:
+            baseTableName: departments
+            baseColumnNames: parent_id
+            referencedTableName: departments
+            referencedColumnNames: id
+            constraintName: fk_departments_parent
+            onDelete: SET NULL
+  - changeSet:
+      id: add-index-departments-parent-id
+      author: serj
+      changes:
+        - createIndex:
+            tableName: departments
+            indexName: idx_departments_parent_id
+            columns:
+              - column:
+                  name: parent_id
