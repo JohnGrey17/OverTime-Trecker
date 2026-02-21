@@ -38,6 +38,7 @@ public class DepartmentServiceImpl implements DepartmentService {
     }
 
     @Override
+    @Transactional
     public void createNewDepartment(NewDepartmentRequestDto requestDto) {
         departmentRepository.save(workEntityFactory.createNewDepartment(requestDto));
     }

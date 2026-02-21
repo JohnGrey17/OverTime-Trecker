@@ -4,9 +4,11 @@ import com.example.OvertimeTracker.dto.salary.UserUpdateSalaryRequestDto;
 import com.example.OvertimeTracker.dto.user.userResponse.UserResponseDto;
 import com.example.OvertimeTracker.dto.user.update.user.UserPasswordUpdateRequestDto;
 import com.example.OvertimeTracker.dto.user.update.user.UserUpdateRequestDto;
+import com.example.OvertimeTracker.exceptions.types.DepartmentException;
 import com.example.OvertimeTracker.exceptions.types.UserException;
 import com.example.OvertimeTracker.mapper.UserMapper;
 import com.example.OvertimeTracker.model.user.User;
+import com.example.OvertimeTracker.repositories.DepartmentRepository;
 import com.example.OvertimeTracker.repositories.UserRepository;
 import com.example.OvertimeTracker.service.factory.DtoFactory;
 import jakarta.transaction.Transactional;
@@ -24,7 +26,7 @@ public class UserServiceImpl implements UserService {
     private final DtoFactory dtoFactory;
     private final PasswordEncoder passwordEncoder;
     private final UserMapper userMapper;
-
+    private final DepartmentRepository departmentRepository;
 
     @Override
     public List<UserResponseDto> getUsersByDepartment(Long departmentId) {
@@ -42,6 +44,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public String upgradeUserSalary(Long userId, UserUpdateSalaryRequestDto dto) {
         User user = userRepository.findById(userId).orElseThrow(
                 () -> new UserException("User does not exist"));
@@ -67,6 +70,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public void changePassword(Long userId, UserPasswordUpdateRequestDto requestDto) {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new UserException("User does not exist"));
@@ -100,6 +104,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public void deleteUser(Long userId, Long userOwnId) {
 
         User user = userRepository.findById(userId).orElseThrow(() -> new UserException("User not found"));
@@ -107,6 +112,16 @@ public class UserServiceImpl implements UserService {
             throw new UserException("You can`t delete your self from that interface");
         }
         userRepository.deleteById(user.getId());
+    }
+
+    @Override
+    @Transactional
+    public void updateUserDepartment(Long userId, Long departmentId) {
+        User user = userRepository.findById(userId).orElseThrow(
+                () -> new UserException("User not found"));
+        user.setDepartment(departmentRepository.findById(departmentId).orElseThrow(
+                () -> new DepartmentException("Department does not exist")));
+        userRepository.save(user);
     }
 
     private void applyUserCardUpdates(User user, UserUpdateRequestDto dto) {

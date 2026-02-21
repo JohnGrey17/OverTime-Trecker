@@ -54,4 +54,5 @@ public class UserConditionController {
         userConditionService.delete(userId, conditionId);
         return ResponseEntity.noContent().build();
     }
+
 }

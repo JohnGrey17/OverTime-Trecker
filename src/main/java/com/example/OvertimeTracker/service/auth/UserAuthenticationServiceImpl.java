@@ -62,7 +62,7 @@ public class UserAuthenticationServiceImpl implements UserAuthenticationService 
 
         // 🎯 Перетворення String → Set<Department>
 
-        user.setDepartment(getDepartment(dto.getDepartmentId()));
+        user.setDepartment(getDepartment(dto.getSubDepartmentId()));
         return user;
     }
 

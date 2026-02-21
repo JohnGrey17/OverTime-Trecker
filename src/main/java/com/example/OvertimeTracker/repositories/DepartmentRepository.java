@@ -9,6 +9,7 @@ import java.util.Optional;
 
 @Repository
 public interface DepartmentRepository extends JpaRepository<Department, Long> {
+
     boolean existsByCode(String code);
 
     List<Department> findAllByParent_Id(Long parentId);
@@ -16,5 +17,6 @@ public interface DepartmentRepository extends JpaRepository<Department, Long> {
     boolean existsByParent_Id(Long parentId);
 
     Optional<Department> findByIdAndParent_Id(Long id, Long parentId);
+
 
 }

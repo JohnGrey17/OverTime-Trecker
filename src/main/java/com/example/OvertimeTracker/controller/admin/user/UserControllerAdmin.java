@@ -6,6 +6,7 @@ import com.example.OvertimeTracker.model.user.User;
 import com.example.OvertimeTracker.service.user.UserService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -46,4 +47,14 @@ public class UserControllerAdmin {
         return ResponseEntity.ok("Користувач видалений");
     }
 
+    @PutMapping("/user/{userId}/department/{departmentId}")
+    @PreAuthorize("hasRole('ADMIN')")
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<Void> updateUserDepartment(
+            @PathVariable Long userId,
+            @PathVariable Long departmentId
+    ) {
+        userService.updateUserDepartment(userId, departmentId);
+        return ResponseEntity.noContent().build();
+    }
 }
