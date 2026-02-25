@@ -35,7 +35,6 @@ public class AdminDepartmentController {
     public ResponseEntity<String> updateDepartmentInfo(@RequestBody DepartmentUpdateRequestDto requestDto) {
         departmentService.updateDepartmentInfo(requestDto);
         return ResponseEntity.ok("Department info was changed");
-
     }
 
     @PostMapping("/{parentId}/children")
@@ -58,6 +57,6 @@ public class AdminDepartmentController {
     )
     public ResponseEntity<Void> deleteDepartment(@PathVariable Long departmentId) {
         departmentService.deleteDepartment(departmentId);
-        return ResponseEntity.noContent().build(); // 204
+        return ResponseEntity.noContent().build();
     }
 }

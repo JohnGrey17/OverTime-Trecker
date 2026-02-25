@@ -1,13 +1,14 @@
-package com.example.OvertimeTracker.dto.department.user.department;
+    package com.example.OvertimeTracker.dto.department.user.department;
 
-import lombok.Data;
+    import lombok.Data;
 
-@Data
-public class DepartmentResponseDto {
+    @Data
+    public class DepartmentResponseDto {
 
-    private Long id;
+        private Long id;
 
-    private String name;
+        private String name;
 
-    private String code;
-}
+        private String code;
+        private Long parentId;
+    }

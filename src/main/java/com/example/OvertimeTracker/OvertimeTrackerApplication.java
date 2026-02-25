@@ -9,5 +9,4 @@ public class OvertimeTrackerApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(OvertimeTrackerApplication.class, args);
 	}
-
 }

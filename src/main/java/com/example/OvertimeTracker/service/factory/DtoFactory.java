@@ -69,6 +69,11 @@ public class DtoFactory {
         dto.setId(department.getId());
         dto.setName(department.getName());
         dto.setCode(department.getCode());
+        dto.setParentId(
+                department.getParent() != null
+                        ? department.getParent().getId()
+                        : null
+        );
         return dto;
     }
 
