@@ -1,7 +1,8 @@
 package com.example.OvertimeTracker.service.factory;
 
 import com.example.OvertimeTracker.dto.bonus.BonusResponseDto;
-import com.example.OvertimeTracker.dto.department.DepartmentResponseDto;
+import com.example.OvertimeTracker.dto.department.user.department.DepartmentResponseDto;
+import com.example.OvertimeTracker.dto.department.user.subdepartment.SubDepartmentResponseDto;
 import com.example.OvertimeTracker.dto.missingDate.MissingDayResponseDto;
 import com.example.OvertimeTracker.dto.overTime.OverTimeResponseDto;
 import com.example.OvertimeTracker.dto.roles.RoleResponseDto;
@@ -137,6 +138,13 @@ public class DtoFactory {
 
         dto.setRoleName(String.valueOf(role.getName()));
         dto.setDisplayName(role.getDisplayName());
+        return dto;
+    }
+
+    public SubDepartmentResponseDto createSubDepartmentResponseDto(Department department) {
+        SubDepartmentResponseDto dto = new SubDepartmentResponseDto();
+        dto.setSubDepartmentName(department.getName());
+        dto.setSubDepartment_id(department.getId());
         return dto;
     }
 

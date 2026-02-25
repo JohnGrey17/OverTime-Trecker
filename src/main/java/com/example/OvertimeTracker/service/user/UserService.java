@@ -24,4 +24,6 @@ public interface UserService {
 
     void deleteUser(Long userId, Long userOwnId);
 
+    void updateUserDepartment(Long userId, Long departmentId);
+
 }

@@ -23,7 +23,12 @@
         @Column(unique = true, nullable = false)
         private String code;
 
-        @OneToMany(mappedBy = "department", fetch = FetchType.LAZY)
-        private Set<User> users = new HashSet<>();
+        @ManyToOne(fetch = FetchType.LAZY)
+        @JoinColumn(name = "parent_id")
+        private Department parent;
+
+        @OneToMany(mappedBy = "parent", fetch = FetchType.LAZY)
+        private Set<Department> children = new HashSet<>();
+
 
     }

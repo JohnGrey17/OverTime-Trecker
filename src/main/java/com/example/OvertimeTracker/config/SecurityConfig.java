@@ -52,6 +52,7 @@ public class SecurityConfig {
                                         "/error",
                                         "/swagger-ui/**",
                                         "/department/getAll",
+                                        "/department/*/children",
                                         "/v3/api-docs/**"
                                         ,"swagger-ui.html",
                                         "/forgot/**")
@@ -92,4 +93,8 @@ public class SecurityConfig {
         source.registerCorsConfiguration("/**", config);
         return source;
     }
+
+    //todo прибрати "http://localhost:5500",
+    //                "http://127.0.0.1:5500",
+    //                "http://localhost:63342",
 }

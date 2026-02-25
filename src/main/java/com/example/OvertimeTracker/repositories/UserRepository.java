@@ -23,4 +23,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
             "LEFT JOIN FETCH u.roles " +
             "WHERE u.department.id = :departmentId")
     List<User> findByDepartmentId(Long departmentId);
+
+    boolean existsByDepartment_Id(Long departmentId);
+
 }

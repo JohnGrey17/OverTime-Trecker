@@ -35,3 +35,5 @@ databaseChangeLog:
       file: db/changes/creator/create-user-condition-table.yaml
   - include:
       file: db/changes/insert/delete-user-serhii-hainovskyi.yaml
+  - include:
+      file: db/changes/changes/add-parent-id-to-department.yaml
